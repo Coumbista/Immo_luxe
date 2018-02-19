@@ -1,15 +1,25 @@
+
 {% extends "::base.html.twig" %}
 
 {% block title %}GSTImmobilierBundle:DefaultController:index{% endblock %}
 
 {% block body %}
 
+
+
+{% block img %}
 <div class="container">
   <img src="{{asset('image/téléchargement.png')}}" alt="" /> 
  
 </div>
+{% endblock %}
+
+
 <br/>
 
+
+
+{% block nav %}
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
   <ul class="navbar navbar-nav">
     <li class="nav-item">
@@ -28,6 +38,12 @@
   </ul>
  
 </nav>
+{% endblock %}
+
+
+
+
+{% block search %}
 <div class="container text-center">
 <nav class="navbar navbar-light bg-faded">
 <form method="post">
@@ -74,7 +90,12 @@
   </form>
 </nav>
     </div>
+{% endblock %}
 
+
+
+
+{% block image %}
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -142,6 +163,7 @@ De 9H à 19H
 								</p>
 							</div>
     </div>
+
     <div class="col-sm-3">
       <img src="{{asset('image/41492.jpg')}}" class="img-responsive" style="width:100%" alt="Image">
       <p>Maison à vendre</p>
@@ -162,7 +184,12 @@ De 9H à 19H
     
   </div>
 </div><br>
+{% endblock %}
 
+
+
+
+{% block footer %}
 <footer class="container-fluid text-center">
 <footer class="mg-footer">
 			<div class="mg-footer-widget">
@@ -214,5 +241,9 @@ De 9H à 19H
 		</footer>
 
 </footer>
+{% endblock %}
+
+
+
 
 {% endblock %}
