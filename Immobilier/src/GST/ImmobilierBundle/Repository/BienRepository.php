@@ -26,4 +26,7 @@ class BienRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->execute();
     }
+    public function findbien($localite=0,$typebien=0,$prixLoc=0){
+
+    }
 }
