@@ -1,0 +1,240 @@
+/* Remove the navbar's default margin-bottom and rounded borders */
+
+
+/* Add a gray background color and some padding to the footer */
+
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+
+.item {
+    width: auto;
+    height: 450px;
+}
+
+.carousel-inner img {
+    width: 100%;
+    /* Set width to 100% */
+    margin: auto;
+    min-height: 200px;
+}
+
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.mg-footer-widget {
+    background-color: #16262e;
+    padding: 70px 0 20px;
+    color: #c0c8cb;
+}
+
+.mg-footer-widget .widget {
+    margin-bottom: 50px;
+}
+
+.mg-footer-widget .widget:before,
+.mg-footer-widget .widget:after {
+    content: " ";
+    display: table;
+}
+
+.mg-footer-widget .widget:after {
+    clear: both;
+}
+
+.mg-footer-widget a {
+    color: #fff;
+}
+
+.mg-footer-widget a:hover {
+    color: #e7b315;
+}
+
+.mg-footer-widget .form-control {
+    height: auto;
+    padding: 8px 12px;
+    border-radius: 1px;
+    border-color: #fff;
+    color: #fff;
+    background-color: transparent;
+}
+
+.mg-footer-widget .form-control::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.mg-footer-widget .form-control:-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+}
+
+.mg-footer-widget .form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+}
+
+.mg-footer-widget .form-control:-ms-input-placeholder {
+    color: #fff;
+}
+
+.mg-footer-widget .form-control:focus {
+    color: #fff;
+    border-color: #e7b315;
+    box-shadow: none;
+}
+
+.mg-footer-widget .mg-instagram a {
+    display: block;
+    position: relative;
+}
+
+.mg-footer-widget .mg-instagram a:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    -webkit-transition: background-color 0.5s;
+    transition: background-color 0.5s;
+}
+
+.mg-footer-widget .mg-instagram a:before {
+    font-family: 'FontAwesome';
+    content: '\f16d';
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    color: #fff;
+    -webkit-transform: translate(-50%, -50%) scale(0.5);
+    -ms-transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.mg-footer-widget .mg-instagram a:hover:after {
+    background-color: rgba(22, 38, 46, 0.7);
+}
+
+.mg-footer-widget .mg-instagram a:hover:before {
+    -webkit-transform: translate(-50%, -50%) scale(1.1);
+    -ms-transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+}
+
+.mg-footer-widget .mg-instagram a img {
+    width: 100%;
+}
+
+.mg-footer-widget .mg-widget-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 25px;
+}
+
+.mg-footer-widget .mg-widget-title:after {
+    width: 50px;
+    background-color: #111d24;
+}
+
+.mg-footer-social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mg-footer-social>li {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+.mg-footer-social>li>a {
+    display: block;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.mg-footer-social>li>a:hover {
+    background-color: #e7b315;
+    color: #fff;
+}
+
+.mg-instagram {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mg-instagram>li {
+    float: left;
+    width: 33.33333333%;
+}
+
+.mg-copyright {
+    padding: 15px 0;
+    color: #7a8a92;
+    background-color: #132027;
+    font-size: 13px;
+    text-align: right;
+}
+
+.mg-copyright a {
+    color: #96a3a9;
+}
+
+.mg-copyright a:hover {
+    color: #e7b315;
+    text-decoration: none;
+}
+
+.mg-copyright p {
+    margin: 0;
+}
+
+.mg-light-footer .mg-footer-widget {
+    background-color: #f7f7f7;
+    color: #7a8a92;
+}
+
+.mg-light-footer .mg-widget-title {
+    color: #16262e;
+}
+
+.mg-light-footer .mg-copyright {
+    color: #7a8a92;
+    background-color: #eaeaea;
+}
+
+.mg-light-footer .mg-footer-social>li>a {
+    background-color: #16262e;
+}
+
+.mg-light-footer .mg-footer-social>li>a:hover {
+    background-color: #e7b315;
+}
+
+.mg-instagram>li {
+    width: 25%;
+}

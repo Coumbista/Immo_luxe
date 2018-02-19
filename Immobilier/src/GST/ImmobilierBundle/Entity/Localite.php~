@@ -1,0 +1,72 @@
+<?php
+
+namespace GST\ImmobilierBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Localite
+ *
+ * @ORM\Table(name="localite")
+ * @ORM\Entity(repositoryClass="GST\ImmobilierBundle\Repository\LocaliteRepository")
+ */
+class Localite
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelleloca", type="string", length=50)
+     */
+    private $libelleloca;
+ /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Bien", mappedBy = "localite")
+   */
+
+  private $biens;
+  
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set libelleloca
+     *
+     * @param string $libelleloca
+     *
+     * @return Localite
+     */
+    public function setLibelleloca($libelleloca)
+    {
+        $this->libelleloca = $libelleloca;
+
+        return $this;
+    }
+
+    /**
+     * Get libelleloca
+     *
+     * @return string
+     */
+    public function getLibelleloca()
+    {
+        return $this->libelleloca;
+    }
+}
+

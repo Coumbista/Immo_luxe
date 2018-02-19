@@ -1,0 +1,12 @@
+{# {% extends "::base.html.twig" %} #}
+ {% extends 'GSTImmobilierBundle:Front:layout.html.twig'   %} 
+ 
+{% block title %}GSTImmobilierBundle:Front:reserver{% endblock %}
+
+{% block body %}
+<div class="container">
+  {{ form (form)}}
+          <a href="Agence_immobilier/Immobilier/web/app_dev.php/front/bien/login" class="btn btn-primary">se connecter</a>
+
+</div><br><br>
+        {% endblock %}

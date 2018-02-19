@@ -1,0 +1,194 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}GSTImmobilierBundle:DefaultController:index{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+  <img src="{{asset('image/téléchargement.png')}}" alt="" /> 
+ 
+</div>
+<br/>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul class="navbar navbar-nav">
+    <li class="nav-item">
+      <a class="navbar-brand" href="#">Accueil</a>
+    </li>
+    <li class="nav-item">
+      <a class="navbar-brand" href="#">Nos bien</a>
+    </li>
+    <li class="nav-item">
+      <a class="navbar-brand" href="#">A propros</a>
+    </li>
+    <li class="nav-item">
+      <a class="navbar-brand" href="#">Mon compte</a>
+    </li>
+     
+  </ul>
+ 
+</nav>
+<div class="container text-center">
+<nav class="navbar navbar-light bg-faded">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="text" placeholder="Veillez saisir la localité">
+  </form>
+</nav>
+<nav class="navbar navbar-light bg-faded">
+  <form class="form-inline" action="" method="post">
+<select>
+    {# {% for type in types %}
+  <option > {{type.libelletype}} </option>
+  {% endfor %} #}
+  
+</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="prix_location" aria-describedby="basic-addon2">
+</div>&nbsp&nbsp&nbsp&nbsp
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Recherche">Recherche</button>
+
+  </form>
+</nav>
+    </div>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{asset('image/img.jpg')}}" alt="Image">
+
+      </div>
+
+      <div class="item">
+        <img src="{{asset('image/Senegalnew.jpg')}}" alt="Image">
+        
+        
+      </div>
+
+      <div class="item">
+        <img src="{{asset('image/33675-1.jpg')}}" alt="Image">
+      
+      </div>
+
+      <div class="item">
+        <img src="{{asset('image/33675-2.jpg')}}" alt="Image">
+      
+      </div>
+   </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+  
+<div class="container text-center">
+<br/>
+  <div class="row">
+  <div class="col-sm-3">
+    	<div class="widget">
+								<h2 class="mg-widget-title">Contactez-nous</h2>
+								<address>
+									<strong>Immobilier de luxe</strong><br>
+									Rue-Aline Sitoe Diatta<br>
+								</address>
+				
+								<p>
+									Tel : 221 33 000 21 40
+                  Email : immoluxe@gmail.com
+								</p>
+		<strong>Service disponible</strong><br>
+Du Lundi au Vendredi <br>
+De 9H à 19H
+								<p>
+								
+								</p>
+							</div>
+    </div>
+    <div class="col-sm-3">
+      <img src="{{asset('image/41492.jpg')}}" class="img-responsive" style="width:100%" alt="Image">
+      <p>Maison à vendre</p>
+      <p>3 chambre et Sallon, térasse,cuisine,garrage et un espace jeux</p>
+    </div>
+    <div class="col-sm-3"> 
+      <img src="{{asset('image/IMG_0975[1].JPG')}}" class="img-responsive" style="width:100%" alt="Image">
+     <p>Maison à louer</p>
+      <p>4 chambre, 2 sallons, cuisine,piscine,jardin</p>
+   
+    </div>
+    <div class="col-sm-3"> 
+      <img src="{{asset('image/images.jpeg')}}" class="img-responsive" style="width:100%" alt="Image">
+     <p>Immeuble </p>
+      <p>3 etage de 10 appartements</p>
+   
+    </div>
+    
+  </div>
+</div><br>
+
+<footer class="container-fluid text-center">
+<footer class="mg-footer">
+			<div class="mg-footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3 col-sm-6">
+						<div class="widget">
+								<h2 class="mg-widget-title">Instagram</h2>
+								<ul class="mg-instagram">
+									<li><a href="#"><img src="{{asset('image/1.png')}}" alt=""></a></li>
+									<li><a href="#"><img src="{{asset('image/2.png')}}" alt=""></a></li>
+									<li><a href="#"><img src="{{asset('image/3.png')}}" alt=""></a></li>
+									<li><a href="#"><img src="{{asset('image/4.png')}}" alt=""></a></li>
+								
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<div class="widget">
+								<h2 class="mg-widget-title">En partenariat</h2>
+								
+        <img src="{{asset('image/logo-orange.png')}}" alt="Image"></div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<div class="widget">
+								<h2 class="mg-widget-title">Réseaux Sociaux</h2>
+								<p>Suivez-nous sur les réseaux sociaux.</p>
+								<ul class="mg-footer-social">
+									<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+									<li><a href="#"><i class="fab fa-pinterest-square"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+									<li><a href="#"><i class="fa fa-rss"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mg-copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<p>&copy; 2018 <a href="http://www.sonatelacademy.sn">Immobilier de luxe</a>. tout droits reservés.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+</footer>
+
+{% endblock %}

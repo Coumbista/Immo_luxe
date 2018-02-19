@@ -1,0 +1,39 @@
+ {% extends 'GSTImmobilierBundle:Default:index.html.twig'   %} 
+ 
+{% block title %}GSTImmobilierBundle:Front:reserver{% endblock %}
+
+{% block body %}
+<div class="container">
+  <form method="POST">
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" name="emailclient" class="form-control" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="password" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" name="password" class="form-control"  placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+    </div>
+  </form>
+          <a href="Agence_immobilier/Immobilier/web/app_dev.php/Immobilier/front/bien/logup" class="btn btn-primary">s'inscrire</a>
+
+</div><br><br>
+{% if users%}
+
+{%else%}
+<td colspan="6">Veillez vous inscrire</td>
+
+
+{% endif %}
+
+
+
+        {% endblock %}

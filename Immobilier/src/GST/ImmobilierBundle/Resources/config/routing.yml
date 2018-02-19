@@ -1,0 +1,26 @@
+gst_immobilier_homepage:
+    path:     /
+    defaults: { _controller: GSTImmobilierBundle:Default:index }
+searchBien:
+    path:     /bien/search
+    defaults: { _controller: GSTImmobilierBundle:Front:searchBien }
+listtype:
+    path:     /bien/layout
+    defaults: { _controller: GSTImmobilierBundle:Front:listtype}   
+
+listlocalite:
+    path:     /bien/layout
+    defaults: { _controller: GSTImmobilierBundle:Front:listlocalite}
+reserver:
+    path:     /front/bien/reserver
+    defaults: { _controller: GSTImmobilierBundle:Front:reserver }
+reservation:
+    path:     /front/bien/reserver
+    defaults: { _controller: GSTImmobilierBundle:Front:reservation }
+login:
+    path:     /front/bien/login
+    defaults: { _controller: GSTImmobilierBundle:Front:login }
+logup:
+    path:     /front/bien/logup
+    defaults: { _controller: GSTImmobilierBundle:Front:logup }
+
