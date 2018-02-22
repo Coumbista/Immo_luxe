@@ -1,31 +1,33 @@
-{% extends "::base.html.twig" %}
+{% extends "::layout.html.twig" %}
 
 {% block title %}GSTImmobilierBundle:Front:searchBien{% endblock %}
 
 {% block body %}
 
-<table class="table ">
-<thead class="thead-inverse">
-<tr >
-<th scope="row">id</th>
-<th>login</th>
-<th>nomcomplet</th>
-<th>datenais</th>
-<th>Edition</th>
-<th>Suppression</th>
-<th>Etat</th>
-</tr>
-</thead>
-{%for bien in biens%}
-<tr>
-<td>{{bien.nombien}}</td>
-<td>{{bien.etat}}</td>
-<td>{{bien.description}}</td>
-<td>{{bien.prix_loc}}</td>
-<td>{{bien.localite}}</td>
-<td>{{bien.typebien}}</td>
-{% endfor %}
-</tr>
-</table>
+  <div class="col-8 ">
+            <div class="container">
+                   
+                    <div class="card-columns" id="list" style="display:inline">
+                    
+                        {% for bien in biens %}
+                        <div class="card">
+                            <img class="card-img-top" src="{{ asset('image/')}}{{ bien.images[0].image }}" alt="Card image cap" style="width:200px;">
+                            <div class="card-body bg-light">
+                                <h4 style="font-family:Goudy; color:grey" class="card-title"><center>{{ bien.nombien }}</center></h4>
+                               
+                                <p class="card-text" style="margin-left:500px;">
+                                <p><B>Description: </B><span class="text-primary">{{ bien.description }}</span></p>
+                                    <p><B>Prix: </B><span class="text-primary">{{ bien.prix_loc }}</span></p>
+                                    <p><B>Localité: </B>{{ bien.localite.libelleloca }}</p>
+                                     <p><B>Ttypebien: </B>{{ bien.typebien.libelletype}}</p>
+                                </p>
+                                </div>
+                                                          </div>
+                        </div>
+                        {% endfor %}
+                      
+                    </div>
+                </div>
+        </div>
 {% endblock %}
 

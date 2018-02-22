@@ -92,4 +92,7 @@ class Image
     {
         return $this->bien;
     }
+    public function __toString(){
+        return $this->image;
+    }
 }

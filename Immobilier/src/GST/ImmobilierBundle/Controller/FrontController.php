@@ -8,6 +8,7 @@ use GST\ImmobilierBundle\Entity\Typebien;
 use GST\ImmobilierBundle\Entity\Bien;
 use GST\ImmobilierBundle\Entity\Localite;
 use GST\ImmobilierBundle\Entity\Client;
+use GST\ImmobilierBundle\Entity\Image;
 use GST\ImmobilierBundle\Form\ClientType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,20 +19,28 @@ class FrontController extends Controller
      */
     public function searchBienAction(Request $request)
     {
-        $em=$this->getDoctrine()->getManager();
-        $searchs=$em->getRepository('GSTImmobilierBundle:Bien')->findAll();
-
-       if($request->isMethod("POST"))
-       {
-         $localite=$request->get('localite');
-         $typebien=$request->get('typebien');
-         $prix_loc=$request->get('prix_loc');
-         $searchs = $em->getRepository(Bien::class)->findBienByValues($localite, $typebien,$prix_loc);
-       }
-       return $this->render('GSTImmobilierBundle:Front:layout.html.twig', array('biens'=>$searchs
-       ));
+                
+        $em = $this->getDoctrine()->getManager();
+        
+                if ($request->isMethod('POST')) {             
+                                                              
+                   if ($_POST['localite'] == '' && $_POST['typebien'] == ''  && $_POST['prix_loc'] == '') {
+                       $listbien = $em->getRepository('GSTImmobilierBundle:Bien')->findAll();
+                    } else {
+                        $listbien = $em->getRepository('GSTImmobilierBundle:Bien')->findBienByValues($_POST['localite'], $_POST['typebien'], $_POST['prix_loc']);
+                    }
+                } else {
+                    $listbien = $em->getRepository('GSTImmobilierBundle:Bien')->findAll();
+                }
+                $listType = $em->getRepository('GSTImmobilierBundle:Typebien')->findAll();
+                $listLocalite = $em->getRepository('GSTImmobilierBundle:Localite')->findAll();
             
-    }
+                return $this->render('GSTImmobilierBundle:Front:search_bien.html.twig', array(
+                'biens' => $listbien, 'types' => $listType, 'localites' => $listLocalite,
+                ));}
+           
+            
+            
 /**
      * @Route("front/bien/reserver")
      */
@@ -41,36 +50,7 @@ class FrontController extends Controller
             // ...
         ));
     }
-    public function listtypeAction( )
-    {   
-        $repository = $this
-        ->getDoctrine()
-        ->getManager()
-        ->getRepository('GSTImmobilierBundle:Typebien');
-//recupérer les données de la base de données0
-        $listtype = $repository->findAll();               
-       return $this->render('GSTImmobilierBundle:Front:layout.html.twig',
-       array("types" => $listtype));
 
-    }
-    public function listlocaliteAction()
-    {   
-
-        $em=$this->getDoctrine()
-        ->getManager();
-        $searchs=$em->getRepository('GSTImmobilierBundle:Bien')->findAll();
-        if($request->isMethod("POST"))
-        {
-            $login=$request->get('localite');
-            $searchs=$em->getRepository('GSTImmobilierBundle:Bien')->findBy(array('localite'=>$localite));
-            
-        }
-        return $this->render('GSTImmobilierBundle:Front:layout.html.twig', array('biens'=>$searchs
-
-            // ...
-        ));
-    }
-    
    /**
      * @Route("front/bien/login")
      */
@@ -111,10 +91,10 @@ class FrontController extends Controller
                    $em->persist($user) ;
             
                    $em->flush();
-                   return $this->redirectToRoute("logup");
+                //    return $this->redirectToRoute("logup");
+                return $this->render('GSTImmobilierBundle:Front:list.html.twig');
                 }
-                    }
-        
+                    }       
         
         
                 // ******
@@ -122,6 +102,5 @@ class FrontController extends Controller
                     "form"=>$formUser->createView()  // ...
                 ));
             }
-    
-   
+
 }

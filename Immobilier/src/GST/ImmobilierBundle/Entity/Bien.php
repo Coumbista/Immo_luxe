@@ -202,7 +202,7 @@ class Bien
 
     /**
      * Get idparentbien
-     *
+     *..
      * @return int
      */
     public function getIdparentbien()
@@ -299,4 +299,5 @@ class Bien
     {
         return $this->images;
     }
+   
 }
