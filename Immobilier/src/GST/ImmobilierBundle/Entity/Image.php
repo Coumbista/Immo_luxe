@@ -29,7 +29,7 @@ class Image
     private $image;
  /**
 
-   * @ORM\ManyToOne(targetEntity = "GST\ImmobilierBundle\Entity\Bien")
+   * @ORM\ManyToOne(targetEntity = "GST\ImmobilierBundle\Entity\Bien",  inversedBy="images")
    *  * @ORM\JoinColumn(nullable=false)
 
    */

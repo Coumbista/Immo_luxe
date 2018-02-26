@@ -4,28 +4,40 @@ gst_immobilier_homepage:
 searchBien:
     path:     /bien/search
     defaults: { _controller: GSTImmobilierBundle:Front:searchBien }
+reserverBien:
+    path:     /front/bien/reserver/{id}
+    defaults: { _controller: GSTImmobilierBundle:Front:reserverBien }
+    requirements:
+        id: \d+
+logup:
+    path:     /front/bien/logup
+    defaults: { _controller: GSTImmobilierBundle:Front:logup }
+
+
 list:
     path:     /list
-    defaults: { _controller: GSTImmobilierBundle:Admin:list}   
+    defaults: { _controller: GSTImmobilierBundle:Admin:list} 
+recharge:
+    path:     /recharge
+    defaults: { _controller: GSTImmobilierBundle:Admin:recharge}     
 
-# listlocalite:
-#     path:     /bien/layout
-#     defaults: { _controller: GSTImmobilierBundle:Front:listlocalite}
-# reserver:
+Listtype:
+    path:     /type
+    defaults: { _controller: GSTImmobilierBundle:Admin:Listtype}
+Listlocalite:
+    path:     /localite
+    defaults: { _controller: GSTImmobilierBundle:Admin:Listlocalite}
+Listreserve:
+    path:     /listereserve
+    defaults: { _controller: GSTImmobilierBundle:Admin:Listreserve}
+
+
+
+# reserverBien:
 #     path:     /front/bien/reserver
-#     defaults: { _controller: GSTImmobilierBundle:Front:reserver }
-# reservation:
-#     path:     /front/bien/reserver
-#     defaults: { _controller: GSTImmobilierBundle:Front:reservation }
+#     defaults: { _controller: GSTImmobilierBundle:Front:reserverBien }
 # login:
 #     path:     /front/bien/login
 #     defaults: { _controller: GSTImmobilierBundle:Front:login }
-# logup:
-#     path:     /front/bien/logup
-#     defaults: { _controller: GSTImmobilierBundle:Front:logup }
-
-# listimage:
-#     path:     /bien/layout
-#     defaults: { _controller: GSTImmobilierBundle:Front:listimage }
 
 

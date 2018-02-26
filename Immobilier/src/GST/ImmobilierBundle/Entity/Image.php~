@@ -29,7 +29,7 @@ class Image
     private $image;
  /**
 
-   * @ORM\ManyToOne(targetEntity = "GST\ImmobilierBundle\Entity\Bien")
+   * @ORM\ManyToOne(targetEntity = "GST\ImmobilierBundle\Entity\Bien",  inversedBy="images")
    *  * @ORM\JoinColumn(nullable=false)
 
    */
@@ -68,5 +68,31 @@ class Image
     {
         return $this->image;
     }
-}
 
+    /**
+     * Set bien
+     *
+     * @param \GST\ImmobilierBundle\Entity\Bien $bien
+     *
+     * @return Image
+     */
+    public function setBien(\GST\ImmobilierBundle\Entity\Bien $bien)
+    {
+        $this->bien = $bien;
+
+        return $this;
+    }
+
+    /**
+     * Get bien
+     *
+     * @return \GST\ImmobilierBundle\Entity\Bien
+     */
+    public function getBien()
+    {
+        return $this->bien;
+    }
+    public function __toString(){
+        return $this->image;
+    }
+}

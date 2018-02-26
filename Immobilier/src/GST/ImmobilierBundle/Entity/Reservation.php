@@ -40,6 +40,12 @@ class Reservation
    * @ORM\JoinColumn(nullable=false)   */
 
   private $client;
+   /**
+   * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Bien", inversedBy="reservations")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $bien;
+  
   
 
 
@@ -100,49 +106,7 @@ class Reservation
     {
         return $this->etat;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->bien = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->client = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add bien
-     *
-     * @param \GST\ImmobilierBundle\Entity\Bien $bien
-     *
-     * @return Reservation
-     */
-    public function addBien(\GST\ImmobilierBundle\Entity\Bien $bien)
-    {
-        $this->bien[] = $bien;
-
-        return $this;
-    }
-
-    /**
-     * Remove bien
-     *
-     * @param \GST\ImmobilierBundle\Entity\Bien $bien
-     */
-    public function removeBien(\GST\ImmobilierBundle\Entity\Bien $bien)
-    {
-        $this->bien->removeElement($bien);
-    }
-
-    /**
-     * Get bien
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBien()
-    {
-        return $this->bien;
-    }
-
+  
     /**
      * Add client
      *
@@ -177,6 +141,22 @@ class Reservation
         return $this->client;
     }
 
+   
+
+    /**
+     * Set client
+     *
+     * @param \GST\ImmobilierBundle\Entity\Client $client
+     *
+     * @return Reservation
+     */
+    public function setClient(\GST\ImmobilierBundle\Entity\Client $client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
     /**
      * Set bien
      *
@@ -192,16 +172,12 @@ class Reservation
     }
 
     /**
-     * Set client
+     * Get bien
      *
-     * @param \GST\ImmobilierBundle\Entity\Client $client
-     *
-     * @return Reservation
+     * @return \GST\ImmobilierBundle\Entity\Bien
      */
-    public function setClient(\GST\ImmobilierBundle\Entity\Client $client)
+    public function getBien()
     {
-        $this->client = $client;
-
-        return $this;
+        return $this->bien;
     }
 }

@@ -1,0 +1,83 @@
+{% extends 'GSTImmobilierBundle:Default:index.html.twig'   %} 
+ 
+{% block title %}GSTImmobilierBundle:Front:reserver{% endblock %}
+
+{% block body %}
+<div class="container">
+ {% for bien in  biens %}
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <figure style="width:300px;
+height:300px;" class="mg-room">
+
+                                    <img style="width:100%;
+height:100%;"  src="{{ asset('images/')}}{{bien.images[0].image}}"
+alt="img11" id="" class="img-responsive">
+                                    <figcaption>
+                                        <h2>{{bien.nombien}}</h2>
+                                        <div class="mg-room-rating"><i
+class="fa fa-star"></i> 5.00</div>
+                                        <div
+class="mg-room-price">{{bien.prix_loc}}</div>
+                                        <p>{{bien.description}}</p>
+                                        <a href="#" class="btn
+btn-link">Voir Détails <i class="fa fa-angle-double-right"></i></a>
+                                        <a href="{{path
+('detail',{'id':bien.id})}}" class="btn btn-main">Réserver</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            {%endfor%}
+</div><br><br>
+        {% endblock %}
+
+
+
+
+
+
+
+
+ {# $dql = "SELECT b, i FROM GST\ImmobilierBundle\Entity\Bien b 
+        left Join b.images i Join b.typebien t Join b.localite l WHERE b.etat = 1";
+        if ($idLocalite != 0) {
+            $dql .= ' AND l.id = :idLoc';
+        }
+        if ($idType != 0) {
+            $dql .= ' AND t.id = :idType';
+        }
+        if ($budget != 0) {
+            $dql .= ' AND b.prix_loc BETWEEN :prixMin AND :prixMax';
+        }
+ 
+        $query = $this->getEntityManager()->createQuery($dql);
+ 
+        if ($idLocalite != 0) {
+            $query->setParameter('idLoc', $idLocalite);
+        }
+        if ($idType != 0) {
+            $query->setParameter('idType', $idType);
+        }
+        if ($budget != 0) {
+            $query->setParameter('prixMin', $budget - 10000)
+            ->setParameter('prixMax', $budget + 20000);
+        }
+ 
+        return $query->getResult();
+    }
+
+
+    public function findById($id)
+
+    {
+        $dql = "SELECT b, i FROM GST\ImmobilierBundle\Entity\Bien  b
+        left Join b.images i Join b.typebien t Join b.localite l
+WHERE b.id = :id";
+        $query = $this->getEntityManager()->createQuery($dql);
+        $query->setParameter('id', $id);
+
+          return $query->getResult();
+
+
+    }
+} #}

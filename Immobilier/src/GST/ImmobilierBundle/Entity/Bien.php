@@ -79,6 +79,12 @@ class Bien
    */
 
   private $images;
+   /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Reservation", mappedBy = "bien")
+   */
+
+  private $reservations;
   
     /**
      * Get id
@@ -300,4 +306,62 @@ class Bien
         return $this->images;
     }
    
+
+    /**
+     * Set prixLoc
+     *
+     * @param integer $prixLoc
+     *
+     * @return Bien
+     */
+    public function setPrixLoc($prixLoc)
+    {
+        $this->prix_loc = $prixLoc;
+
+        return $this;
+    }
+
+    /**
+     * Get prixLoc
+     *
+     * @return integer
+     */
+    public function getPrixLoc()
+    {
+        return $this->prix_loc;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \GST\ImmobilierBundle\Entity\Image $reservation
+     *
+     * @return Bien
+     */
+    public function addReservation(\GST\ImmobilierBundle\Entity\Image $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \GST\ImmobilierBundle\Entity\Image $reservation
+     */
+    public function removeReservation(\GST\ImmobilierBundle\Entity\Image $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
 }

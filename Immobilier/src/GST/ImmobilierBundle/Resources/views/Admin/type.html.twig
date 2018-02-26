@@ -1,0 +1,45 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="container" id="container"style="margin-top:50px;">
+      
+<table class="table" id="myTable" >
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Nom type</th>
+      
+    </tr>
+  </thead>{%for type in types %}
+<tr>
+<td>{{type.id}}</td>
+<td>{{type.libelletype}}</td>
+
+{% endfor %}
+</tr>
+</table>
+
+{% block head %}
+{% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
+
+{% endblock %}
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block javascript %}
+  <script src="{{ asset('js/jquery.js') }}"></script>
+  <script src="{{ asset('js/datatables.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/liste.js') }}"></script>
+{% endblock %}
+
+ 
+{% endblock %}
+
+

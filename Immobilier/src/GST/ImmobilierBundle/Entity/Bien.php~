@@ -40,7 +40,7 @@ class Bien
      *
      * @ORM\Column(name="prix_loc", type="integer")
      */
-    private $prixLoc;
+    private $prix_loc;
 
     /**
      * @var bool
@@ -79,6 +79,12 @@ class Bien
    */
 
   private $images;
+   /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Reservation", mappedBy = "bien")
+   */
+
+  private $reservations;
   
     /**
      * Get id
@@ -139,27 +145,27 @@ class Bien
     }
 
     /**
-     * Set prixLoc
+     * Set prix_loc
      *
-     * @param integer $prixLoc
+     * @param integer $prix_loc
      *
      * @return Bien
      */
-    public function setPrixLoc($prixLoc)
+    public function setPrix_loc($prix_loc)
     {
-        $this->prixLoc = $prixLoc;
+        $this->prix_loc = $prix_loc;
 
         return $this;
     }
 
     /**
-     * Get prixLoc
+     * Get prix_loc
      *
      * @return int
      */
-    public function getPrixLoc()
+    public function getPrix_loc()
     {
-        return $this->prixLoc;
+        return $this->prix_loc;
     }
 
     /**
@@ -202,7 +208,7 @@ class Bien
 
     /**
      * Get idparentbien
-     *
+     *..
      * @return int
      */
     public function getIdparentbien()
@@ -257,5 +263,105 @@ class Bien
     public function getTypebien()
     {
         return $this->typebien;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add image
+     *
+     * @param \GST\ImmobilierBundle\Entity\Image $image
+     *
+     * @return Bien
+     */
+    public function addImage(\GST\ImmobilierBundle\Entity\Image $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \GST\ImmobilierBundle\Entity\Image $image
+     */
+    public function removeImage(\GST\ImmobilierBundle\Entity\Image $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+   
+
+    /**
+     * Set prixLoc
+     *
+     * @param integer $prixLoc
+     *
+     * @return Bien
+     */
+    public function setPrixLoc($prixLoc)
+    {
+        $this->prix_loc = $prixLoc;
+
+        return $this;
+    }
+
+    /**
+     * Get prixLoc
+     *
+     * @return integer
+     */
+    public function getPrixLoc()
+    {
+        return $this->prix_loc;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \GST\ImmobilierBundle\Entity\Image $reservation
+     *
+     * @return Bien
+     */
+    public function addReservation(\GST\ImmobilierBundle\Entity\Image $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \GST\ImmobilierBundle\Entity\Image $reservation
+     */
+    public function removeReservation(\GST\ImmobilierBundle\Entity\Image $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }

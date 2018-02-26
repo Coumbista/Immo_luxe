@@ -3,38 +3,4 @@
 
 {% block body %}
 
-
-<style>
-.rower{
-position:relative;
-top:30px;
-left:500px;s
-}
-</style>
-
-<br>
-<table class="table ">
-<thead class="thead-inverse">
-<tr >
-<th scope="row">id</th>
-<th>nom du bien</th>
-<th>Etat</th>
-<th>Description</th>
-<th>Prix_locationn</th>
-
-
-</tr>
-</thead>
-{%for bien in biens %}
-<tr>
-
-<td>{{bien.nombien}}</td>
-<td>{{bien.etat}}</td>
-<td>{{bien.desciption}}</td>
-<td>{{bien.prix_loc}}</td>
-{% else %}
-aucun biens enregistre
-{%endfor%}
-</table>
-</div>
 {% endblock %}

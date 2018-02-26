@@ -1,0 +1,86 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+           <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" />
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+    <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link bien" href="#">Bien</a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link localite" href="#">Localité</a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link type" href="#">Type_Bien</a>
+    </li>
+   
+  </ul>
+    </div>
+    {% block load %}
+    <div class="col-sm-10" id="contenu">
+    <h1>LOADING</h1> <h1>LOADING</h1> <h1>LOADING</h1>
+     <script>
+    $(document).ready(function(){
+    
+    $('.bien').on('click',function(){
+        $("#contenu").load("{{ path('list')}}");
+        
+    });
+    $('.localite').on('click',function(){
+        $("#contenu").load("{{ path('Listlocalite')}}");
+        
+    });
+    $('.type').on('click',function(){
+        $("#contenu").load("{{ path('Listtype')}}");
+        
+    });
+    
+    // contenu.html se trouve au même niveau dans l’arborescence.
+    
+            });
+            </script>
+</div>
+{% endblock %}
+</body>
+</html>
+{% block javascript %}
+
+{% endblock %}
+{# {% block body %}
+{% block nav %}
+<div class="container">
+ 
+  
+</div>
+
+{% endblock %}
+
+{% endblock %} #}
