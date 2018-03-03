@@ -1,0 +1,118 @@
+{% extends "::back.html.twig" %}
+{% block content %}
+  {# <div id="sidebar-menu">
+                        <ul>
+                            
+
+                           
+
+                          
+                         
+
+                 
+s
+                            
+
+                           
+
+
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="md md-place "></i><span>BIENS</span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="type "> type de bien</a></li>
+                                    <li><a href="#"class="localite"> Localité</a></li>
+                                    <li><a href="#"class=" bien">bien</a></li>
+                                </ul>
+                            </li>
+
+                        
+                            
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->                      
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+<div class="text-center">
+  <img src="{{asset('image/téléchargement.png')}}" alt="" /> 
+ 
+</div>
+
+{% block nav %}
+
+    <nav class="navbar navbar-inverse" style="height:20px; padding-top:-50px">
+        <div class="container-fluid">
+
+            <div class="collapse   navbar-collapse" id="myNavbar" >
+                <ul class="nav navbar-nav " id="centrer">
+                    <li><a href="#" style="color:white; font-size:20px;">Accueil</a></li>
+                    <li><a href="#" style="color:white; font-size:20px;">Nos Biens</a></li>
+                    <li><a href="#" style="color:white; font-size:20px;">A Propros</a></li>
+                    <li><a href="#" style="color:white; font-size:20px;">Mon Compte</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+                        
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title text-center btn" ></h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-xs-12" id="contenu">                                          
+
+    
+                                            <script>
+                                            $(document).ready(function(){
+                                            
+                                            $('.bien').on('click',function(){
+                                                $("#contenu").load("{{ path('list')}}");
+                                                
+                                            });
+                                            $('.localite').on('click',function(){
+                                                $("#contenu").load("{{ path('Listlocalite')}}");
+                                                
+                                            });
+                                            $('.type').on('click',function(){
+                                                $("#contenu").load("{{ path('Listtype')}}");
+                                                
+                                            });
+                                            
+                                            // contenu.html se trouve au même niveau dans l’arborescence.
+                                            
+                                                    });
+                                                    </script>
+</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div> <!-- End Row -->
+
+
+                    
+                        
+                  
+               #}
+
+{% endblock %}

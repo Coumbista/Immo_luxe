@@ -1,27 +1,27 @@
 $(document).ready(function() {
 
     $('#myTable').DataTable({
-
-        language: {
-            processing: "Traitement en cours...",
-            search: "Rechercher&nbsp;:",
-            lengthMenu: "Afficher _MENU_ &eacute;l&eacute;ments",
-            info: "Affichage de l'&eacute;lement_START_ & agrave;_END_ sur _TOTAL_ & eacute;l & eacute;ments ",
-            infoEmpty: "Affichage de l'&eacute;lement 0 &agrave;0 sur 0 & eacute;l & eacute;ments ",
-            infoFiltered: "(filtr&eacute; de _MAX_ &eacute;l & eacute;ments au total)",
-            infoPostFix: "",
-            loadingRecords: "Chargement en cours...",
-            zeroRecords: "Aucun &eacute;l&eacute;ment &agrave;afficher ",
-            emptyTable: "Aucune donnée disponible dans le tableau",
-            paginate: {
-                first: "Premier",
-                previous: "Pr&eacute;c&eacute;dent",
-                next: "Suivant",
-                last: "Dernier"
+        "iDisplayLength": 5,
+        "language": {
+            "sProcessing":     "Traitement en cours...",
+            "sSearch":         "Rechercher&nbsp;:",
+            "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+            "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+            "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+            "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+            "sInfoPostFix":    "",
+            "sLoadingRecords": "Chargement en cours...",
+            "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+            "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+            "oPaginate": {
+                "sFirst":      "Premier",
+                "sPrevious":   "Pr&eacute;c&eacute;dent",
+                "sNext":       "Suivant",
+                "sLast":       "Dernier"
             },
-            aria: {
-                sortAscending: ": activer pour trier la colonne par ordre croissant ",
-                sortDescending: ": activer pour trier la colonne par ordre décroissant "
+            "oAria": {
+                "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+                "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
             }
         }
     });

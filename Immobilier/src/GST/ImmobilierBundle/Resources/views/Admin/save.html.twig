@@ -1,0 +1,80 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="jumbotron text-center">
+  <h1>Immobilier De Luxe</h1>
+  <p>Terme du contrat!</p> 
+</div>
+  
+<div class="container">
+<h1 style="margin-left:400px;font-size:30px; color:grey; font-family: Goudy"> Terme du contrat</h1>
+<hr style="border: solid 1px grey; margin-left:150px;">
+<form name="reservations">
+
+  <div>
+<div class="card" style="width:800px; margin-bottom:50px;  margin-left:250px;" >
+  <div class="card-header " style="background-color:lightgrey; opacity:0.7">
+<p style="margin-left:50px;font-size:30px; font-family: Goudy">Information sur le client</p >
+  </div>
+  <div class="card-body" >
+ <p style="margin-left:150px;"> <b>Nom client:</b>{{ reservation.client.nomclient}}</p>
+
+<p style="margin-left:150px;"> <b>Tel:</b>{{ reservation.client.telclient}}</p>
+<p style="margin-left:150px;" > <b>Adresse:</b>{{ reservation.client.adresseclient}}</p>
+<p style="margin-left:150px;"> <b>Email:</b>{{ reservation.client.emailclient}}</p>
+  </div>
+
+<div class="card" style="width:800px; margin-bottom:50px; ">
+  <div class="card-header" style="background-color:lightgrey; opacity:0.7">
+<p style="font-size:30px; font-family: Goudy">Information sur le bien</p >
+  </div>
+  <div class="card-body">
+
+<p style="margin-left:150px;">  <b>Typebien:</b>{{reservation.bien.typebien.libelletype}}</p>
+<p style="margin-left:150px;"> <b>Prix:</b>{{ reservation.bien.prix_loc}}</p>
+<p style="margin-left:150px;"> <b>Description</b>{{ reservation.bien.description}}</p>
+
+
+
+      </div>
+</div>
+
+       
+         {% for text in texts %}
+          </textarea> {{text.text}}</textarea>
+         {% endfor %}
+         
+         <form method="post">
+         <ul>
+        <li style="list-style:none"> <b>Caution:</b><input name="caution"type="number"value="{{reservation.bien.prix_loc}}"></li>
+       <li  style="list-style:none"> <b> Mensualité:</b><input name="mensualite"type="number"value="{{reservation.bien.prix_loc}}"></li>
+       <li  style="list-style:none"><b>Total:</b><input name="total"value="{{reservation.bien.prix_loc *2}}"></li>
+       <strong>
+    <input type="checkbox" name="duree"> contrat d'une durée d'un an renouvelable
+    </strong><br>
+     </div>
+     {# <div class="card-footer text-muted"> #}
+  <input type="radio" name="nancy"value="" id="acc">Accepter</input>
+         <input type="radio" name="nancy" value="" id="ref">Refuser</input>
+         <input class="btn btn-info"  type="submit" name="submit" value="Enregistrer" id="enregistre" disabled="disabled"  >
+         <a href="{{path('pdf', {'id':reservation.id})}}" class="btn btn-info" >EN Pdf</a>
+    </form>
+     </div>
+   </div>
+   
+    </div>
+</div>
+<div class="row">
+<div class="col-lg-12 bg-dark" style="height:300px;"> pied de page</div>
+</div>
+  </div>
+  <script>
+$(document).ready(function(){
+    $("input[name=nancy]").on("change",function(){
+        if($("#acc").is(':checked') || $("#ref").is(':checked')){
+        // alert('checked');
+       $("#enregistre").removeAttr('disabled');
+    }
+    }); 
+     });
+</script>
+{% endblock %}

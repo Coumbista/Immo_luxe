@@ -33,7 +33,5 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
-services:
-    app.html2pdf:
-        class:AppBundle\Service\Html2pdf
+
 

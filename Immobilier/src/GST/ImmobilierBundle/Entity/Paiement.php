@@ -152,4 +152,7 @@ class Paiement
     {
         return $this->contrat;
     }
+    public function __toString(){
+        return $this->periode;
+    }
 }

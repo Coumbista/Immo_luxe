@@ -37,6 +37,7 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    
     form_themes:
         - 'bootstrap_3_layout.html.twig'
         - 'form_div_layout.html.twig'
@@ -146,4 +147,32 @@ assetic:
 
             output: "fonts/glyphicons-halflings-regular.woff"
 
-
+easy_admin:
+    entities:
+            - GST\ImmobilierBundle\Entity\Client
+            - GST\ImmobilierBundle\Entity\Bien
+            - GST\ImmobilierBundle\Entity\Typebien
+            - GST\ImmobilierBundle\Entity\Localite
+            - GST\ImmobilierBundle\Entity\Contrat
+            - GST\ImmobilierBundle\Entity\Reservation
+            - GST\ImmobilierBundle\Entity\Image
+            - GST\ImmobilierBundle\Entity\Proprietaire
+            - GST\ImmobilierBundle\Entity\Paiement
+        # Bien:
+        #     class: GST\ImmobilierBundle\Entity\Bien
+        #     form:
+        #         fields:
+        #             - { image: 'imageFile', type: 'file' }
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltopdf #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\"" for Windows users
+        options:    
+            no-outline: true
+            page-size: LETTER
+            encoding: UTF-8
+    image:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltoimage #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" for Windows users
+        options:    []
+    temporary_folder: "%kernel.cache_dir%/snappy"

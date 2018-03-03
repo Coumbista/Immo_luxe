@@ -69,7 +69,7 @@ class FrontController extends Controller
                                $em->persist($reserve);
                                $em->flush();
             
-                               return $this->render('GSTImmobilierBundle:Front:reserve.html.twig');
+                               return $this->render('GSTImmobilierBundle:Front:reserver.html.twig');
                            }
                        } 
                     
@@ -89,7 +89,7 @@ class FrontController extends Controller
                                $em->flush();
                            }
             
-                           return $this->render('GSTImmobilierBundle:Front:reserve.html.twig');
+                           return $this->render('GSTImmobilierBundle:Front:reserver.html.twig');
                        }
                     }
                        return $this->render('GSTImmobilierBundle:Front:reservation.html.twig', array(

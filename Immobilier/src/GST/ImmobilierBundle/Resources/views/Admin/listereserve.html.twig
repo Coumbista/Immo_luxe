@@ -21,8 +21,7 @@
         <th>Localite du Bien</th>
          <th>Type du bien</th>
           <th>Prix location</th>
-           <th>Image</th>
-       
+           <th>Image</th>       
           <th>Opération</th>
       
     </tr>
@@ -36,6 +35,7 @@
 <td>{{reservation.bien.typebien.libelletype}}</td>
 <td>{{reservation.bien.prix_loc}}</td>
 <td><img  src="{{ asset('image/')}}{{ reservation.bien.images[0].image }}" alt="" style="width:100px;"></td>
+ <td><a href="{{path('detailreserver', {'id':reservation.id})}}" class="btn btn-primary col-12"style="margin-left:50px;">Detail</a></td>
 
 
 {% endfor %}

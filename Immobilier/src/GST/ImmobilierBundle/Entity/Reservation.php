@@ -34,10 +34,12 @@ class Reservation
      * @ORM\Column(name="etat", type="boolean")
      */
     private $etat;
-  
-  /**
-   * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Client")
-   * @ORM\JoinColumn(nullable=false)   */
+ /**
+
+   * @ORM\ManyToOne(targetEntity = "GST\ImmobilierBundle\Entity\Client")
+   *  * @ORM\JoinColumn(nullable=false)
+
+   */
 
   private $client;
    /**
@@ -179,5 +181,8 @@ class Reservation
     public function getBien()
     {
         return $this->bien;
+    }
+    public function __toString(){
+        return $this->etat;
     }
 }

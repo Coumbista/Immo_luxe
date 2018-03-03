@@ -11,7 +11,7 @@
 } #}
 </style>
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="height:200px;">
   <h1>Immobilier De Luxe</h1>
   <p>Nous somme à votre service <em style="color:blue;">24h/24</em>!</p> 
 </div>
@@ -19,18 +19,35 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-5">
-   {{ form (form)}}
+    <div class="card">
+      <div class="card-header ">
+       shfbfjkgd
+      </div>
+      <div class="card-body">
+        <h4 class="card-title "> <b style="margin-left:200px;">S'inscrire</b></h4>
+        <p class="card-text">  {{ form (form)}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        Footer
+      </div>
+    </div>
+ 
   
     </div>
 
 <div class="col-sm-5" id="contenu">
-<form>
-<label for="email"> Login</label>
-<input type="text" value="" name="emailclient"><br>
-<label for="pwd"> Password</label>
-<input type="password" value="" name="password">
+
+<form action="" method="post">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>  
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-</div>
 
         
       {% endblock %}

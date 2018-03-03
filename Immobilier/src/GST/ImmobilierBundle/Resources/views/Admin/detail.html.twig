@@ -1,0 +1,76 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="jumbotron text-center">
+  <h1>Immobilier De Luxe</h1>
+  <p>Réservation en cour!</p> 
+</div>
+  
+<div class="container">
+  <div class="row" style="border:solid 1px grey;width:300px;margin-left:300px;">
+    <div class="col-lg-2">
+
+    <table class="table" id="myTable" >
+  <thead>
+    <tr>
+      <th>Client</th>     
+      
+    </tr>
+  </thead>
+
+   <tr>
+    <td>
+         <b>Nom du client:</b>{{reservation.client.nomclient}}
+         <b>TelClient:</b>{{reservation.client.telclient}}
+         <b>AdresseClient:</b>{{reservation.client.adresseclient}}        
+          <b>Email:</b>{{reservation.client.emailclient}}
+        </td>
+      
+       </div>
+</tr>
+</table>
+        <div class="col-lg-2">
+         <table class="table" id="myTable" >
+  <thead>
+    <tr>
+      <th>Bien</th>     
+      
+    </tr>
+  </thead>
+
+   <tr>
+    <td> 
+         
+        <b> Prix_location:</b>{{reservation.bien.prix_loc}}
+         <b>Localité:</b>{{reservation.bien.localite.libelleloca}}
+         <b>Typebien:</b>{{reservation.bien.typebien.libelletype}}
+        
+        </td>
+           
+              </tr>
+              </table>
+       </div>
+        <div class="col-lg-2">
+         <table class="table" id="myTable" >
+  <thead>
+    <tr>
+      <th>Images</th>     
+      
+    </tr>
+  </thead>
+  {%for image in reservation.bien.images %}
+     <tr>    
+         <td><img  src="{{ asset('image/')}}{{image.image }}" alt="" style="width:100px;"></td>
+          </tr>
+          {% endfor %}
+       </table>
+       </div>
+      
+       <div class="col-lg-2">
+   {# <form method="post"  style="display:flex;display-flex:row;list-style:none;"> #}
+      {# <input type="submit" name="retour" class="btn btn-primary " value="Retour"> #}
+       <td><a href="{{path('saveContrat', {'id':reservation.id})}}" class="btn btn-primary "style="width:200px;">Valider</a></td>
+ {# </form> #}
+    </div>
+      
+</div>
+{% endblock %}

@@ -21,6 +21,8 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="UserUserBundle">User\UserBundle\UserUserBundle</parameter>
+      <parameter key="EasyAdminBundle">EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
+      <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -87,6 +89,16 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/Agence_immobilier/Immobilier/src/User/UserBundle</parameter>
         <parameter key="namespace">User\UserBundle</parameter>
+      </parameter>
+      <parameter key="EasyAdminBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src</parameter>
+        <parameter key="namespace">EasyCorp\Bundle\EasyAdminBundle</parameter>
+      </parameter>
+      <parameter key="KnpSnappyBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-snappy-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\SnappyBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -473,6 +485,97 @@
       <parameter>ResetPassword</parameter>
       <parameter>Default</parameter>
     </parameter>
+    <parameter key="easyadmin.config" type="collection">
+      <parameter key="entities" type="collection">
+        <parameter key="Client" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Client</parameter>
+          <parameter key="name">Client</parameter>
+        </parameter>
+        <parameter key="Bien" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Bien</parameter>
+          <parameter key="name">Bien</parameter>
+        </parameter>
+        <parameter key="Typebien" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Typebien</parameter>
+          <parameter key="name">Typebien</parameter>
+        </parameter>
+        <parameter key="Localite" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Localite</parameter>
+          <parameter key="name">Localite</parameter>
+        </parameter>
+        <parameter key="Contrat" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Contrat</parameter>
+          <parameter key="name">Contrat</parameter>
+        </parameter>
+        <parameter key="Reservation" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Reservation</parameter>
+          <parameter key="name">Reservation</parameter>
+        </parameter>
+        <parameter key="Image" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Image</parameter>
+          <parameter key="name">Image</parameter>
+        </parameter>
+        <parameter key="Proprietaire" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Proprietaire</parameter>
+          <parameter key="name">Proprietaire</parameter>
+        </parameter>
+        <parameter key="Paiement" type="collection">
+          <parameter key="class">GST\ImmobilierBundle\Entity\Paiement</parameter>
+          <parameter key="name">Paiement</parameter>
+        </parameter>
+      </parameter>
+      <parameter key="design" type="collection">
+        <parameter key="assets" type="collection">
+          <parameter key="css" type="collection"/>
+          <parameter key="js" type="collection"/>
+          <parameter key="favicon" type="collection">
+            <parameter key="path">favicon.ico</parameter>
+            <parameter key="mime_type">image/x-icon</parameter>
+          </parameter>
+        </parameter>
+        <parameter key="theme">default</parameter>
+        <parameter key="color_scheme">dark</parameter>
+        <parameter key="brand_color">#205081</parameter>
+        <parameter key="form_theme" type="collection">
+          <parameter>@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig</parameter>
+        </parameter>
+        <parameter key="menu" type="collection"/>
+      </parameter>
+      <parameter key="site_name">EasyAdmin</parameter>
+      <parameter key="formats" type="collection">
+        <parameter key="date">Y-m-d</parameter>
+        <parameter key="time">H:i:s</parameter>
+        <parameter key="datetime">F j, Y H:i</parameter>
+      </parameter>
+      <parameter key="disabled_actions" type="collection"/>
+      <parameter key="translation_domain">messages</parameter>
+      <parameter key="list" type="collection">
+        <parameter key="actions" type="collection"/>
+        <parameter key="max_results">15</parameter>
+      </parameter>
+      <parameter key="search" type="collection"/>
+      <parameter key="edit" type="collection">
+        <parameter key="actions" type="collection"/>
+      </parameter>
+      <parameter key="new" type="collection">
+        <parameter key="actions" type="collection"/>
+      </parameter>
+      <parameter key="show" type="collection">
+        <parameter key="actions" type="collection"/>
+        <parameter key="max_results">10</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="easyadmin.cache.dir">/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/easy_admin</parameter>
+    <parameter key="knp_snappy.pdf.binary">/usr/local/bin/wkhtmltopdf</parameter>
+    <parameter key="knp_snappy.pdf.options" type="collection">
+      <parameter key="no-outline">true</parameter>
+      <parameter key="page-size">LETTER</parameter>
+      <parameter key="encoding">UTF-8</parameter>
+    </parameter>
+    <parameter key="knp_snappy.pdf.env" type="collection"/>
+    <parameter key="knp_snappy.image.binary">/usr/local/bin/wkhtmltoimage</parameter>
+    <parameter key="knp_snappy.image.options" type="collection"/>
+    <parameter key="knp_snappy.image.env" type="collection"/>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -541,6 +644,10 @@
         <parameter>dump</parameter>
         <parameter>@Debug/Profiler/dump.html.twig</parameter>
       </parameter>
+      <parameter key="easyadmin.data_collector" type="collection">
+        <parameter>easyadmin</parameter>
+        <parameter>@EasyAdmin/data_collector/easyadmin.html.twig</parameter>
+      </parameter>
       <parameter key="data_collector.config" type="collection">
         <parameter>config</parameter>
         <parameter>@WebProfiler/Collector/config.html.twig</parameter>
@@ -591,7 +698,6 @@
     <service id="AppBundle\Controller\DefaultController" class="AppBundle\Controller\DefaultController" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
-    <service id="AppBundle\Service\HTML2PDF" class="AppBundle\Service\HTML2PDF" public="false" autowire="true" autoconfigure="true"/>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -755,7 +861,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>7dQzC7fV1s0iENSO-sWKiN</argument>
+      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -765,7 +871,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>7dQzC7fV1s0iENSO-sWKiN</argument>
+      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -881,7 +987,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.61ce42ee314d3459d7339b36d3fecf2a"/>
+      <argument type="service" id="service_locator.b3f1a5bf272deacb203d6f3586db90e4"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -889,6 +995,7 @@
           <argument type="service" id="form.type_extension.upload.validator"/>
           <argument type="service" id="form.type_extension.csrf"/>
           <argument type="service" id="form.type_extension.form.data_collector"/>
+          <argument type="service" id="easyadmin.form.type.extension"/>
         </argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="iterator">
           <argument type="service" id="form.type_extension.repeated.validator"/>
@@ -900,6 +1007,7 @@
       <argument type="iterator">
         <argument type="service" id="form.type_guesser.validator"/>
         <argument type="service" id="form.type_guesser.doctrine"/>
+        <argument type="service" id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser"/>
       </argument>
       <argument>null</argument>
     </service>
@@ -1267,6 +1375,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ro.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ro.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ro.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ro.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ro.xlf</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lv.xlf</argument>
@@ -1281,6 +1391,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.fr.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fr.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fr.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.fr.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fr.xlf</argument>
           </argument>
           <argument key="hu" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf</argument>
@@ -1288,6 +1400,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hu.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hu.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hu.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.hu.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.hu.xlf</argument>
           </argument>
           <argument key="da" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
@@ -1295,6 +1409,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.da.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.da.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.da.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.da.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.da.xlf</argument>
           </argument>
           <argument key="lt" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
@@ -1302,6 +1418,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lt.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.lt.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lt.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.lt.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.lt.xlf</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf</argument>
@@ -1341,6 +1459,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pl.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pl.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pl.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.pl.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.pl.xlf</argument>
           </argument>
           <argument key="sq" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf</argument>
@@ -1357,6 +1477,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.es.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.es.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.es.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.es.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.es.xlf</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf</argument>
@@ -1364,12 +1486,16 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.de.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.de.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.de.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.de.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.de.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.uk.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.uk.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.uk.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.uk.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf</argument>
@@ -1389,6 +1515,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fi.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fi.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fi.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.fi.xlf</argument>
           </argument>
           <argument key="sl" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf</argument>
@@ -1396,6 +1524,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sl.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sl.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sl.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.sl.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sl.xlf</argument>
           </argument>
           <argument key="no" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf</argument>
@@ -1407,6 +1537,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.eu.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eu.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.eu.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.eu.xlf</argument>
           </argument>
           <argument key="ar" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf</argument>
@@ -1414,6 +1546,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ar.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ar.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ar.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ar.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ar.xlf</argument>
           </argument>
           <argument key="nl" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf</argument>
@@ -1421,6 +1555,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.nl.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nl.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nl.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.nl.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.nl.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
@@ -1446,6 +1582,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.en.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.en.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.en.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.en.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
@@ -1453,6 +1591,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.cs.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.cs.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.cs.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.cs.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.cs.xlf</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.az.xlf</argument>
@@ -1469,6 +1609,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.tr.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.tr.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.tr.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.tr.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.tr.xlf</argument>
           </argument>
           <argument key="bg" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
@@ -1476,6 +1618,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.bg.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.bg.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.bg.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.bg.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.bg.xlf</argument>
           </argument>
           <argument key="he" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf</argument>
@@ -1490,12 +1634,16 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ca.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ca.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ca.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ca.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ca.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.pt.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.pt.xlf</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf</argument>
@@ -1503,6 +1651,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ru.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ru.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ru.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ru.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ru.xlf</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
@@ -1533,6 +1683,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.it.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.it.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.it.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.it.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
@@ -1547,6 +1699,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sv.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sv.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sv.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.sv.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sv.xlf</argument>
           </argument>
           <argument key="zh_CN" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
@@ -1554,6 +1708,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.zh_CN.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.zh_CN.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.zh_CN.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.zh_CN.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.zh_CN.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf</argument>
@@ -1570,6 +1726,8 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hr.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hr.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hr.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.hr.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.hr.xlf</argument>
           </argument>
           <argument key="pt_PT" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pt_PT.xlf</argument>
@@ -1839,6 +1997,9 @@
         <argument type="service" id="data_collector.dump"/>
       </call>
       <call method="add">
+        <argument type="service" id="easyadmin.data_collector"/>
+      </call>
+      <call method="add">
         <argument type="service" id="data_collector.config"/>
       </call>
     </service>
@@ -1971,6 +2132,22 @@
         <argument type="collection">
           <argument type="service" id="data_collector.router"/>
           <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.controller</argument>
+        <argument type="collection">
+          <argument type="service" id="easyadmin.listener.controller"/>
+          <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>easy_admin.post_initialize</argument>
+        <argument type="collection">
+          <argument type="service" id="easyadmin.listener.request_post_initialize"/>
+          <argument>initializeRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -3158,12 +3335,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a93b71666b8a5.12005177</argument>
+      <argument>5a96f9d2c80702.39447173</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a93b71666b8a5.12005177</argument>
+      <argument>5a96f9d2c80702.39447173</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3288,6 +3465,9 @@
         <argument type="service" id="assetic.twig_extension"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="easyadmin.twig.extension"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.dump"/>
       </call>
       <call method="addExtension">
@@ -3372,6 +3552,10 @@
       <call method="addPath">
         <argument>/var/www/html/Agence_immobilier/Immobilier/src/User/UserBundle/Resources/views</argument>
         <argument>UserUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/views</argument>
+        <argument>EasyAdmin</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -3527,6 +3711,10 @@
       <call method="addPath">
         <argument>/var/www/html/Agence_immobilier/Immobilier/src/User/UserBundle/Resources/views</argument>
         <argument>UserUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/views</argument>
+        <argument>EasyAdmin</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -4560,6 +4748,279 @@
       <argument type="service" id="fos_user.mailer.default"/>
       <argument>7200</argument>
     </service>
+    <service id="easyadmin.cache.manager" class="EasyCorp\Bundle\EasyAdminBundle\Cache\CacheManager">
+      <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/easy_admin</argument>
+    </service>
+    <service id="easyadmin.config.manager" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigManager">
+      <argument type="service" id="easyadmin.cache.manager"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="collection">
+        <argument key="entities" type="collection">
+          <argument key="Client" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Client</argument>
+            <argument key="name">Client</argument>
+          </argument>
+          <argument key="Bien" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Bien</argument>
+            <argument key="name">Bien</argument>
+          </argument>
+          <argument key="Typebien" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Typebien</argument>
+            <argument key="name">Typebien</argument>
+          </argument>
+          <argument key="Localite" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Localite</argument>
+            <argument key="name">Localite</argument>
+          </argument>
+          <argument key="Contrat" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Contrat</argument>
+            <argument key="name">Contrat</argument>
+          </argument>
+          <argument key="Reservation" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Reservation</argument>
+            <argument key="name">Reservation</argument>
+          </argument>
+          <argument key="Image" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Image</argument>
+            <argument key="name">Image</argument>
+          </argument>
+          <argument key="Proprietaire" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Proprietaire</argument>
+            <argument key="name">Proprietaire</argument>
+          </argument>
+          <argument key="Paiement" type="collection">
+            <argument key="class">GST\ImmobilierBundle\Entity\Paiement</argument>
+            <argument key="name">Paiement</argument>
+          </argument>
+        </argument>
+        <argument key="design" type="collection">
+          <argument key="assets" type="collection">
+            <argument key="css" type="collection"/>
+            <argument key="js" type="collection"/>
+            <argument key="favicon" type="collection">
+              <argument key="path">favicon.ico</argument>
+              <argument key="mime_type">image/x-icon</argument>
+            </argument>
+          </argument>
+          <argument key="theme">default</argument>
+          <argument key="color_scheme">dark</argument>
+          <argument key="brand_color">#205081</argument>
+          <argument key="form_theme" type="collection">
+            <argument>@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig</argument>
+          </argument>
+          <argument key="menu" type="collection"/>
+        </argument>
+        <argument key="site_name">EasyAdmin</argument>
+        <argument key="formats" type="collection">
+          <argument key="date">Y-m-d</argument>
+          <argument key="time">H:i:s</argument>
+          <argument key="datetime">F j, Y H:i</argument>
+        </argument>
+        <argument key="disabled_actions" type="collection"/>
+        <argument key="translation_domain">messages</argument>
+        <argument key="list" type="collection">
+          <argument key="actions" type="collection"/>
+          <argument key="max_results">15</argument>
+        </argument>
+        <argument key="search" type="collection"/>
+        <argument key="edit" type="collection">
+          <argument key="actions" type="collection"/>
+        </argument>
+        <argument key="new" type="collection">
+          <argument key="actions" type="collection"/>
+        </argument>
+        <argument key="show" type="collection">
+          <argument key="actions" type="collection"/>
+          <argument key="max_results">10</argument>
+        </argument>
+      </argument>
+      <argument>true</argument>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.normalizer_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.design_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.menu_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.action_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.metadata_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.property_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.view_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.template_config_pass"/>
+      </call>
+      <call method="addConfigPass">
+        <argument type="service" id="easyadmin.configuration.default_config_pass"/>
+      </call>
+    </service>
+    <service id="easyadmin.query_builder" class="EasyCorp\Bundle\EasyAdminBundle\Search\QueryBuilder">
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="easyadmin.finder" class="EasyCorp\Bundle\EasyAdminBundle\Search\Finder" public="false">
+      <argument type="service" id="easyadmin.query_builder"/>
+      <argument type="service" id="easyadmin.paginator"/>
+    </service>
+    <service id="easyadmin.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Search\Autocomplete">
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="easyadmin.finder"/>
+      <argument type="service" id="property_accessor"/>
+    </service>
+    <service id="easyadmin.paginator" class="EasyCorp\Bundle\EasyAdminBundle\Search\Paginator"/>
+    <service id="easyadmin.router" class="EasyCorp\Bundle\EasyAdminBundle\Router\EasyAdminRouter">
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.twig.extension" class="EasyCorp\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="easyadmin.router"/>
+      <argument>true</argument>
+      <argument type="service" id="security.logout_url_generator" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.listener.controller" class="EasyCorp\Bundle\EasyAdminBundle\EventListener\ControllerListener">
+      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="debug.controller_resolver"/>
+    </service>
+    <service id="easyadmin.listener.request_post_initialize" class="EasyCorp\Bundle\EasyAdminBundle\EventListener\RequestPostInitializeListener">
+      <tag name="kernel.event_listener" event="easy_admin.post_initialize" method="initializeRequest"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.data_collector" class="EasyCorp\Bundle\EasyAdminBundle\DataCollector\EasyAdminDataCollector" public="false">
+      <tag name="data_collector" template="@EasyAdmin/data_collector/easyadmin.html.twig" id="easyadmin"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.configuration.normalizer_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\NormalizerConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="90"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="easyadmin.configuration.design_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\DesignConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="80"/>
+      <argument type="service" id="service_container"/>
+      <argument>true</argument>
+      <argument>en</argument>
+    </service>
+    <service id="easyadmin.configuration.menu_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\MenuConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="70"/>
+    </service>
+    <service id="easyadmin.configuration.action_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ActionConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="60"/>
+    </service>
+    <service id="easyadmin.configuration.metadata_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\MetadataConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="50"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="easyadmin.configuration.property_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\PropertyConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="40"/>
+      <argument type="service" id="form.registry"/>
+    </service>
+    <service id="easyadmin.configuration.view_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\ViewConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="30"/>
+    </service>
+    <service id="easyadmin.configuration.template_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\TemplateConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="20"/>
+      <argument type="service" id="twig.loader.filesystem"/>
+    </service>
+    <service id="easyadmin.configuration.default_config_pass" class="EasyCorp\Bundle\EasyAdminBundle\Configuration\DefaultConfigPass" public="false">
+      <tag name="easyadmin.config_pass" priority="10"/>
+    </service>
+    <service id="easyadmin.form.type" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType">
+      <tag name="form.type"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="collection">
+        <argument key="4" type="service" id="easyadmin.form.type.configurator.autocomplete"/>
+        <argument key="3" type="service" id="easyadmin.form.type.configurator.collection"/>
+        <argument key="2" type="service" id="easyadmin.form.type.configurator.checkbox"/>
+        <argument key="1" type="service" id="easyadmin.form.type.configurator.type"/>
+        <argument key="0" type="service" id="easyadmin.form.type.configurator.entity"/>
+      </argument>
+    </service>
+    <service id="easyadmin.form.type.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType">
+      <tag name="form.type" alias="easyadmin_autocomplete"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.form.type.divider" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType">
+      <tag name="form.type" alias="easyadmin_divider"/>
+    </service>
+    <service id="easyadmin.form.type.section" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType">
+      <tag name="form.type" alias="easyadmin_section"/>
+    </service>
+    <service id="easyadmin.form.type.group" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType">
+      <tag name="form.type" alias="easyadmin_group"/>
+    </service>
+    <service id="easyadmin.form.type.extension" class="EasyCorp\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.form.type_guesser_chain" class="Symfony\Component\Form\FormTypeGuesserChain" public="false">
+      <argument type="collection">
+        <argument type="service" id="form.type_guesser.validator"/>
+        <argument type="service" id="form.type_guesser.doctrine"/>
+        <argument type="service" id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser"/>
+      </argument>
+    </service>
+    <service id="easyadmin.form.type.configurator.autocomplete" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\AutocompleteTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="30"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.collection" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\CollectionTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="20"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.checkbox" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\CheckboxTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="10"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.type" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\TypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="0"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.form.type.configurator.entity" class="EasyCorp\Bundle\EasyAdminBundle\Form\Type\Configurator\EntityTypeConfigurator" public="false">
+      <tag name="easyadmin.form.type.configurator" priority="-20"/>
+    </service>
+    <service id="easyadmin.form.guesser.missing_doctrine_orm_type_guesser" class="EasyCorp\Bundle\EasyAdminBundle\Form\Guesser\MissingDoctrineOrmTypeGuesser">
+      <tag name="form.type_guesser"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>/usr/local/bin/wkhtmltopdf</argument>
+      <argument type="collection">
+        <argument key="no-outline">true</argument>
+        <argument key="page-size">LETTER</argument>
+        <argument key="encoding">UTF-8</argument>
+      </argument>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
+      </call>
+      <call method="setTemporaryFolder">
+        <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/snappy</argument>
+      </call>
+    </service>
+    <service id="knp_snappy.image" class="Knp\Snappy\Image">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>/usr/local/bin/wkhtmltoimage</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
+      </call>
+      <call method="setTemporaryFolder">
+        <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/snappy</argument>
+      </call>
+    </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -4682,6 +5143,10 @@
           <argument>dump</argument>
           <argument>@Debug/Profiler/dump.html.twig</argument>
         </argument>
+        <argument key="easyadmin.data_collector" type="collection">
+          <argument>easyadmin</argument>
+          <argument>@EasyAdmin/data_collector/easyadmin.html.twig</argument>
+        </argument>
         <argument key="data_collector.config" type="collection">
           <argument>config</argument>
           <argument>@WebProfiler/Collector/config.html.twig</argument>
@@ -4765,9 +5230,14 @@
         <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id="service_locator.61ce42ee314d3459d7339b36d3fecf2a" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.b3f1a5bf272deacb203d6f3586db90e4" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType" type="service" id="easyadmin.form.type.autocomplete"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType" type="service" id="easyadmin.form.type.divider"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType" type="service" id="easyadmin.form.type"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType" type="service" id="easyadmin.form.type.group"/>
+        <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType" type="service" id="easyadmin.form.type.section"/>
         <argument key="FOS\UserBundle\Form\Type\ChangePasswordFormType" type="service" id="fos_user.change_password.form.type"/>
         <argument key="FOS\UserBundle\Form\Type\ProfileFormType" type="service" id="fos_user.profile.form.type"/>
         <argument key="FOS\UserBundle\Form\Type\RegistrationFormType" type="service" id="fos_user.registration.form.type"/>
@@ -4931,6 +5401,21 @@
         <argument type="service" id="monolog.handler.main"/>
       </call>
     </service>
+    <service id="monolog.logger.snappy" class="Symfony\Bridge\Monolog\Logger">
+      <argument>snappy</argument>
+      <call method="pushProcessor">
+        <argument type="service" id="debug.log_processor"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.server_log"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+    </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
     <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5003,7 +5488,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>pY-bgD7q9j</argument>
       <argument>0</argument>
-      <argument>7dQzC7fV1s0iENSO-sWKiN</argument>
+      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5011,7 +5496,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>7KLuVCHQDL</argument>
       <argument>0</argument>
-      <argument>7dQzC7fV1s0iENSO-sWKiN</argument>
+      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5019,7 +5504,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>5DW1NDZ2ln</argument>
       <argument>0</argument>
-      <argument>7dQzC7fV1s0iENSO-sWKiN</argument>
+      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5027,7 +5512,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>bZODC3CwoO</argument>
       <argument>0</argument>
-      <argument>7dQzC7fV1s0iENSO-sWKiN</argument>
+      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5138,6 +5623,9 @@
     <service id="fos_user.user_manager" alias="fos_user.user_manager.default"/>
     <service id="fos_user.mailer" alias="fos_user.mailer.default"/>
     <service id="fos_user.session" alias="session" public="false"/>
+    <service id="easy_admin.property_accessor" alias="property_accessor"/>
+    <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf"/>
+    <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand" alias="security.console.user_password_encoder_command"/>

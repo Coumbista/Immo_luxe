@@ -24,7 +24,7 @@ class Contrat
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datecontrat", type="date")
+     * @ORM\Column(name="datecontrat", type="datetime")
      */
     private $datecontrat;
 
@@ -36,22 +36,27 @@ class Contrat
     private $caution;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="duree", type="date")
+     * @ORM\Column(name="duree", type="string")
      */
     private $duree;
- /**
+     /**
+     * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Client",inversedBy="contrats")
+     * @ORM\JoinColumn(nullable=false)   */
+
+    private $client;
+     /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Paiement", mappedBy = "contrat")
+   */
+
+  private $paiements;
+  /**
    * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Bien")
    * @ORM\JoinColumn(nullable=false)   */
 
-  private $bien;
-  
-  /**
-   * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Client")
-   * @ORM\JoinColumn(nullable=false)   */
-
-  private $client;
+    private $bien;
 
     /**
      * Get id
@@ -134,5 +139,58 @@ class Contrat
     {
         return $this->duree;
     }
-}
 
+   
+
+    /**
+     * Set client
+     *
+     * @param \GST\ImmobilierBundle\Entity\Client $client
+     *
+     * @return Contrat
+     */
+    public function setClient(\GST\ImmobilierBundle\Entity\Client $client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \GST\ImmobilierBundle\Entity\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+   
+
+    /**
+     * Set bien
+     *
+     * @param \GST\ImmobilierBundle\Entity\Bien $bien
+     *
+     * @return Contrat
+     */
+    public function setBien(\GST\ImmobilierBundle\Entity\Bien $bien)
+    {
+        $this->bien = $bien;
+
+        return $this;
+    }
+
+    /**
+     * Get bien
+     *
+     * @return \GST\ImmobilierBundle\Entity\Bien
+     */
+    public function getBien()
+    {
+        return $this->bien;
+    }
+    public function __toString(){
+        return $this->duree;
+    }
+}

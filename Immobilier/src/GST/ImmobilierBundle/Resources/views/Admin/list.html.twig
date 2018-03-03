@@ -1,14 +1,16 @@
-{% extends "::base.html.twig" %}
-{% block body %}
+{% extends "::back.html.twig" %}
+{% block recharge %}
 <div class="container" id="container"style="margin-top:50px;">
       
 <table class="table" id="myTable" >
   <thead>
     <tr>
-      <th>id</th>
-      <th>Nom bien</th>
+      <th>Id_Bien</th>
+      <th>Nom_Bien</th>
       <th>Description</th>
-      <th>prix_loc</th>
+      <th>Prix_Location</th>
+        <th>Type_Bien</th>
+          <th>Localite</th>
       <th>Image</th>
     </tr>
   </thead>{%for bien in biens %}
@@ -17,6 +19,8 @@
 <td>{{bien.nombien}}</td>
 <td>{{bien.description}}</td>
 <td>{{bien.prix_loc}}</td>
+<td>{{bien.typebien.libelletype}}</td>
+<td>{{bien.localite.libelleloca}}</td>
  <td><img class="card-img-top" src="{{ asset('image/')}}{{ bien.images[0].image }}" alt="Card image cap" style="width:100px;"></td>
 {% endfor %}
 </tr>

@@ -131,65 +131,95 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'reserverBien')), array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\FrontController::reserverBienAction',));
         }
 
-        // logup
-        if ('/front/bien/logup' === $pathinfo) {
-            return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\FrontController::logupAction',  '_route' => 'logup',);
-        }
+        if (0 === strpos($pathinfo, '/admin')) {
+            if (0 === strpos($pathinfo, '/admin/list')) {
+                // list
+                if ('/admin/list' === $pathinfo) {
+                    return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::listAction',  '_route' => 'list',);
+                }
 
-        if (0 === strpos($pathinfo, '/list')) {
-            // list
-            if ('/list' === $pathinfo) {
-                return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::listAction',  '_route' => 'list',);
+                // Listreserve
+                if ('/admin/listereserve' === $pathinfo) {
+                    return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::ListreserveAction',  '_route' => 'Listreserve',);
+                }
+
             }
 
-            // Listreserve
-            if ('/listereserve' === $pathinfo) {
-                return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::ListreserveAction',  '_route' => 'Listreserve',);
-            }
-
-        }
-
-        elseif (0 === strpos($pathinfo, '/lo')) {
             // Listlocalite
-            if ('/localite' === $pathinfo) {
+            if ('/admin/localite' === $pathinfo) {
                 return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::ListlocaliteAction',  '_route' => 'Listlocalite',);
             }
 
-            if (0 === strpos($pathinfo, '/login')) {
-                // fos_user_security_login
-                if ('/login' === $pathinfo) {
-                    if (!in_array($canonicalMethod, array('GET', 'POST'))) {
-                        $allow = array_merge($allow, array('GET', 'POST'));
-                        goto not_fos_user_security_login;
-                    }
+            // Listtype
+            if ('/admin/type' === $pathinfo) {
+                return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::ListtypeAction',  '_route' => 'Listtype',);
+            }
 
-                    return array (  '_controller' => 'fos_user.security.controller:loginAction',  '_route' => 'fos_user_security_login',);
+            // termeContrat
+            if (0 === strpos($pathinfo, '/admin/terme') && preg_match('#^/admin/terme/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'termeContrat')), array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::termeContratAction',));
+            }
+
+            // detailreserver
+            if (0 === strpos($pathinfo, '/admin/detail') && preg_match('#^/admin/detail/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'detailreserver')), array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::detailreserverAction',));
+            }
+
+            // saveContrat
+            if (0 === strpos($pathinfo, '/admin/save') && preg_match('#^/admin/save/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'saveContrat')), array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::saveContratAction',));
+            }
+
+            // validContrat
+            if (0 === strpos($pathinfo, '/admin/valid') && preg_match('#^/admin/valid/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'validContrat')), array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::validContratAction',));
+            }
+
+            // veil
+            if ('/admin/veil' === $pathinfo) {
+                return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::veilAction',  '_route' => 'veil',);
+            }
+
+            if (0 === strpos($pathinfo, '/admin/pdf')) {
+                // pdf0
+                if (0 === strpos($pathinfo, '/admin/pdf0') && preg_match('#^/admin/pdf0/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pdf0')), array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::pdf0Action',));
                 }
-                not_fos_user_security_login:
 
-                // fos_user_security_check
-                if ('/login_check' === $pathinfo) {
-                    if ('POST' !== $canonicalMethod) {
-                        $allow[] = 'POST';
-                        goto not_fos_user_security_check;
-                    }
-
-                    return array (  '_controller' => 'fos_user.security.controller:checkAction',  '_route' => 'fos_user_security_check',);
+                // pdf
+                if (preg_match('#^/admin/pdf/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pdf')), array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::pdfAction',));
                 }
-                not_fos_user_security_check:
+
+                // pdf1
+                if ('/admin/pdf1' === $pathinfo) {
+                    return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::pdf1Action',  '_route' => 'pdf1',);
+                }
 
             }
 
-            // fos_user_security_logout
-            if ('/logout' === $pathinfo) {
-                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
-                    $allow = array_merge($allow, array('GET', 'POST'));
-                    goto not_fos_user_security_logout;
+            // ajoutBien
+            if ('/admin/ajoutbien' === $pathinfo) {
+                return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::ajoutBienAction',  '_route' => 'ajoutBien',);
+            }
+
+            // easyadmin
+            if ('/admin' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'easyadmin');
                 }
 
-                return array (  '_controller' => 'fos_user.security.controller:logoutAction',  '_route' => 'fos_user_security_logout',);
+                return array (  '_controller' => 'EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AdminController::indexAction',  '_route' => 'easyadmin',);
             }
-            not_fos_user_security_logout:
+
+            // admin
+            if ('/admin' === $trimmedPathinfo) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($rawPathinfo.'/', 'admin');
+                }
+
+                return array (  '_controller' => 'EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\AdminController::indexAction',  '_route' => 'admin',);
+            }
 
         }
 
@@ -302,11 +332,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // Listtype
-        if ('/type' === $pathinfo) {
-            return array (  '_controller' => 'GST\\ImmobilierBundle\\Controller\\AdminController::ListtypeAction',  '_route' => 'Listtype',);
-        }
-
         // homepage
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
@@ -315,6 +340,42 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
+
+        if (0 === strpos($pathinfo, '/login')) {
+            // fos_user_security_login
+            if ('/login' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_fos_user_security_login;
+                }
+
+                return array (  '_controller' => 'fos_user.security.controller:loginAction',  '_route' => 'fos_user_security_login',);
+            }
+            not_fos_user_security_login:
+
+            // fos_user_security_check
+            if ('/login_check' === $pathinfo) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_fos_user_security_check;
+                }
+
+                return array (  '_controller' => 'fos_user.security.controller:checkAction',  '_route' => 'fos_user_security_check',);
+            }
+            not_fos_user_security_check:
+
+        }
+
+        // fos_user_security_logout
+        if ('/logout' === $pathinfo) {
+            if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                $allow = array_merge($allow, array('GET', 'POST'));
+                goto not_fos_user_security_logout;
+            }
+
+            return array (  '_controller' => 'fos_user.security.controller:logoutAction',  '_route' => 'fos_user_security_logout',);
+        }
+        not_fos_user_security_logout:
 
         if (0 === strpos($pathinfo, '/profile')) {
             // fos_user_profile_show

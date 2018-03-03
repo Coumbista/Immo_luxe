@@ -24,7 +24,7 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="numeropiece", type="string", length=50, unique=true)
+     * @ORM\Column(name="numeropiece", type="string", length=50, unique=false)
      */
     private $numeropiece;
 
@@ -52,7 +52,7 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="emailclient", type="string", length=100, nullable=true, unique=true)
+     * @ORM\Column(name="emailclient", type="string", length=100, nullable=true, unique=false)
      */
     private $emailclient;
 

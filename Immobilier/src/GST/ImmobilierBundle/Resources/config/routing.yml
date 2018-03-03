@@ -9,27 +9,71 @@ reserverBien:
     defaults: { _controller: GSTImmobilierBundle:Front:reserverBien }
     requirements:
         id: \d+
-logup:
-    path:     /front/bien/logup
-    defaults: { _controller: GSTImmobilierBundle:Front:logup }
+# logup:
+#     path:     /front/bien/logup
+#     defaults: { _controller: GSTImmobilierBundle:Front:logup }
 
 
 list:
-    path:     /list
+    path:     /admin/list
     defaults: { _controller: GSTImmobilierBundle:Admin:list} 
 recharge:
     path:     /recharge
     defaults: { _controller: GSTImmobilierBundle:Admin:recharge}     
 
 Listtype:
-    path:     /type
+    path:     /admin/type
     defaults: { _controller: GSTImmobilierBundle:Admin:Listtype}
 Listlocalite:
-    path:     /localite
+    path:     /admin/localite
     defaults: { _controller: GSTImmobilierBundle:Admin:Listlocalite}
 Listreserve:
-    path:     /listereserve
+    path:     /admin/listereserve
     defaults: { _controller: GSTImmobilierBundle:Admin:Listreserve}
+detailreserver:
+    path:     /admin/detail/{id}
+    defaults: { _controller: GSTImmobilierBundle:Admin:detailreserver }
+    requirements:
+        id: \d+
+termeContrat:
+    path:     /admin/terme/{id}
+    defaults: { _controller: GSTImmobilierBundle:Admin:termeContrat }
+    requirements:
+        id: \d+
+saveContrat:
+    path:     /admin/save/{id}
+    defaults: { _controller: GSTImmobilierBundle:Admin:saveContrat }
+    requirements:
+        id: \d+
+validContrat:
+    path:     /admin/valid/{id}
+    defaults: { _controller: GSTImmobilierBundle:Admin:validContrat }
+    requirements:
+        id: \d+
+
+pdf0:
+    path:    /admin/pdf0/{id}
+    defaults: { _controller: GSTImmobilierBundle:Admin:pdf0}
+    requirements:
+        id: \d+
+
+pdf:
+    path:    /admin/pdf/{id}
+    defaults: { _controller: GSTImmobilierBundle:Admin:pdf}
+    requirements:
+        id: \d+
+pdf1:
+    path:    /admin/pdf1
+    defaults: { _controller: GSTImmobilierBundle:Admin:pdf1}
+    requirements:
+        id: \d+
+veil:
+    path:    /admin/veil
+    defaults: { _controller: GSTImmobilierBundle:Admin:veil}
+ajoutBien:
+    path:    /admin/ajoutbien
+    defaults: { _controller: GSTImmobilierBundle:Admin:ajoutBien}
+
 
 
 

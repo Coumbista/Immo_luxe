@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new User\UserBundle\UserUserBundle(),
+            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

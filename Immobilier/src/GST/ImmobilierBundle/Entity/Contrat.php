@@ -24,7 +24,7 @@ class Contrat
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datecontrat", type="date")
+     * @ORM\Column(name="datecontrat", type="datetime")
      */
     private $datecontrat;
 
@@ -36,18 +36,27 @@ class Contrat
     private $caution;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="duree", type="date")
+     * @ORM\Column(name="duree", type="string")
      */
     private $duree;
+     /**
+     * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Client",inversedBy="contrats")
+     * @ORM\JoinColumn(nullable=false)   */
 
-  
+    private $client;
+     /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Paiement", mappedBy = "contrat")
+   */
+
+  private $paiements;
   /**
-   * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Client")
+   * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Bien")
    * @ORM\JoinColumn(nullable=false)   */
 
-  private $client;
+    private $bien;
 
     /**
      * Get id
@@ -155,5 +164,74 @@ class Contrat
     public function getClient()
     {
         return $this->client;
+    }
+   
+
+    /**
+     * Set bien
+     *
+     * @param \GST\ImmobilierBundle\Entity\Bien $bien
+     *
+     * @return Contrat
+     */
+    public function setBien(\GST\ImmobilierBundle\Entity\Bien $bien)
+    {
+        $this->bien = $bien;
+
+        return $this;
+    }
+
+    /**
+     * Get bien
+     *
+     * @return \GST\ImmobilierBundle\Entity\Bien
+     */
+    public function getBien()
+    {
+        return $this->bien;
+    }
+    public function __toString(){
+        return $this->duree;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->paiements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add paiement
+     *
+     * @param \GST\ImmobilierBundle\Entity\Paiement $paiement
+     *
+     * @return Contrat
+     */
+    public function addPaiement(\GST\ImmobilierBundle\Entity\Paiement $paiement)
+    {
+        $this->paiements[] = $paiement;
+
+        return $this;
+    }
+
+    /**
+     * Remove paiement
+     *
+     * @param \GST\ImmobilierBundle\Entity\Paiement $paiement
+     */
+    public function removePaiement(\GST\ImmobilierBundle\Entity\Paiement $paiement)
+    {
+        $this->paiements->removeElement($paiement);
+    }
+
+    /**
+     * Get paiements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPaiements()
+    {
+        return $this->paiements;
     }
 }

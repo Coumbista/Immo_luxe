@@ -79,12 +79,12 @@ class Bien
    */
 
   private $images;
-   /**
-
-   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Reservation", mappedBy = "bien")
-   */
+  
 
   private $reservations;
+ 
+
+  private $contrats;
   
     /**
      * Get id
@@ -363,5 +363,42 @@ class Bien
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Add contrat
+     *
+     * @param \GST\ImmobilierBundle\Entity\Reservation $contrat
+     *
+     * @return Bien
+     */
+    public function addContrat(\GST\ImmobilierBundle\Entity\Reservation $contrat)
+    {
+        $this->contrats[] = $contrat;
+
+        return $this;
+    }
+
+    /**
+     * Remove contrat
+     *
+     * @param \GST\ImmobilierBundle\Entity\Reservation $contrat
+     */
+    public function removeContrat(\GST\ImmobilierBundle\Entity\Reservation $contrat)
+    {
+        $this->contrats->removeElement($contrat);
+    }
+
+    /**
+     * Get contrats
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getContrats()
+    {
+        return $this->contrats;
+    }
+    public function __toString(){
+        return $this->nombien;
     }
 }

@@ -64,10 +64,10 @@ class Bien extends \GST\ImmobilierBundle\Entity\Bien implements \Doctrine\ORM\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'nombien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'prix_loc', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'idparentbien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'localite', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'typebien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'images', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'reservations'];
+            return ['__isInitialized__', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'nombien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'prix_loc', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'idparentbien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'localite', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'typebien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'images', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'reservations', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'contrats'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'nombien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'prix_loc', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'idparentbien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'localite', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'typebien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'images', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'reservations'];
+        return ['__isInitialized__', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'nombien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'prix_loc', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'idparentbien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'localite', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'typebien', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'images', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'reservations', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Bien' . "\0" . 'contrats'];
     }
 
     /**
@@ -428,6 +428,50 @@ class Bien extends \GST\ImmobilierBundle\Entity\Bien implements \Doctrine\ORM\Pr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReservations', []);
 
         return parent::getReservations();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addContrat(\GST\ImmobilierBundle\Entity\Reservation $contrat)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addContrat', [$contrat]);
+
+        return parent::addContrat($contrat);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeContrat(\GST\ImmobilierBundle\Entity\Reservation $contrat)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeContrat', [$contrat]);
+
+        return parent::removeContrat($contrat);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getContrats()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContrats', []);
+
+        return parent::getContrats();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
+
+        return parent::__toString();
     }
 
 }
