@@ -35,6 +35,7 @@ class Image
    */
 
   private $bien;
+  
     /**
      * Get id
      *
@@ -95,4 +96,7 @@ class Image
     public function __toString(){
         return $this->image;
     }
+
+
+    
 }

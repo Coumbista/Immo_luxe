@@ -45,36 +45,30 @@ class Proprietaire
     /**
      * @var string
      *
-     * @ORM\Column(name="telpro", type="string", length=15)
+     * @ORM\Column(name="tel_pro", type="string", length=15)
      */
-    private $telpro;
+    private $telPro;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=100, nullable=true, unique=true)
+     * @ORM\Column(name="email_pro", type="string", length=100, unique=true)
      */
-    private $email;
+    private $emailPro;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="codebanque", type="string", length=50, nullable=true, unique=true)
+     * @ORM\Column(name="codebanque", type="string", length=50, unique=true)
      */
     private $codebanque;
-
-   
  /**
-   * @ORM\ManyToMany(targetEntity="GST\ImmobilierBundle\Entity\Bien")
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\BienPro", mappedBy = "proprietaire")
    */
-  private $biens;
-   /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse", type="string", length=50, nullable=false, unique=false)
-     */
-    private $adresse;
-    
+
+  private $bienpros;
+
     /**
      * Get id
      *
@@ -158,51 +152,51 @@ class Proprietaire
     }
 
     /**
-     * Set telpro
+     * Set telPro
      *
-     * @param string $telpro
+     * @param string $telPro
      *
      * @return Proprietaire
      */
-    public function setTelpro($telpro)
+    public function setTelPro($telPro)
     {
-        $this->telpro = $telpro;
+        $this->telPro = $telPro;
 
         return $this;
     }
 
     /**
-     * Get telpro
+     * Get telPro
      *
      * @return string
      */
-    public function getTelpro()
+    public function getTelPro()
     {
-        return $this->telpro;
+        return $this->telPro;
     }
 
     /**
-     * Set email
+     * Set emailPro
      *
-     * @param string $email
+     * @param string $emailPro
      *
      * @return Proprietaire
      */
-    public function setEmail($email)
+    public function setEmailPro($emailPro)
     {
-        $this->email = $email;
+        $this->emailPro = $emailPro;
 
         return $this;
     }
 
     /**
-     * Get email
+     * Get emailPro
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmailPro()
     {
-        return $this->email;
+        return $this->emailPro;
     }
 
     /**
@@ -228,69 +222,5 @@ class Proprietaire
     {
         return $this->codebanque;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->biens = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set adresse
-     *
-     * @param string $adresse
-     *
-     * @return Proprietaire
-     */
-    public function setAdresse($adresse)
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    /**
-     * Get adresse
-     *
-     * @return string
-     */
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
-
-    /**
-     * Add bien
-     *
-     * @param \GST\ImmobilierBundle\Entity\Bien $bien
-     *
-     * @return Proprietaire
-     */
-    public function addBien(\GST\ImmobilierBundle\Entity\Bien $bien)
-    {
-        $this->biens[] = $bien;
-
-        return $this;
-    }
-
-    /**
-     * Remove bien
-     *
-     * @param \GST\ImmobilierBundle\Entity\Bien $bien
-     */
-    public function removeBien(\GST\ImmobilierBundle\Entity\Bien $bien)
-    {
-        $this->biens->removeElement($bien);
-    }
-
-    /**
-     * Get biens
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBiens()
-    {
-        return $this->biens;
-    }
 }
+

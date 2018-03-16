@@ -13,7 +13,7 @@ class BienRepository extends \Doctrine\ORM\EntityRepository
     // public function findBienByValues($idLocalite = 0, $idType = 0, $prix_loc = 0)
         
      
-    // {
+    
 public function findBienByValues($localite,$typebien,$prix_loc){ 
         
             
@@ -22,12 +22,26 @@ public function findBienByValues($localite,$typebien,$prix_loc){
     ->join('b.typebien', 't')
     ->addSelect('l')
     ->addSelect('t')    
-    ->WHERE('l.id = :localite OR t.id = :typebien ')
-    ->setParameters(array('localite' => $localite, 'typebien' => $typebien));
+    ->WHERE('l.id = :localite OR t.id = :typebien OR b.prix_loc BETWEEN :prixMin and :prixMax')
+    ->setParameters(array('localite' => $localite, 'typebien' => $typebien,'prixMin'=>$prix_loc-10000,'prixMax'=>$prix_loc+10000));
 
     return $query->getQuery()->getResult();
 }
-        }
+        
+        /** Update etat du bien en 0 => non disponible */
+     public function updateEtatBien($id)
+     {
+
+        $dql =   "UPDATE  GST\ImmobilierBundle\Entity\Bien b
+        SET b.etat = 1 WHERE b.id = :id";
+
+         $query = $this->getEntityManager()->createQuery($dql);
+         $query->setParameter('id', $id);
+
+           return $query->getResult();
+     }
+    }
+
 //         $dql = "SELECT b, i FROM GST\ImmobilierBundle\Entity\Bien b 
 //         left Join b.images i Join b.typebien t Join b.localite l WHERE b.etat = 1";
 //         if ($idLocalite != 0) {
@@ -55,5 +69,5 @@ public function findBienByValues($localite,$typebien,$prix_loc){
 
 //         return $query->getResult();
 //     }
-
+       
 // }

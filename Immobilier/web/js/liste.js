@@ -25,4 +25,22 @@ $(document).ready(function() {
             }
         }
     });
+   
+    
+        $('.formloca').hide();
+      
+        $('#loca').on('click',function(){
+           $('.formloca').show();
+        });
+            $('.formtype').hide();
+           $('#type').on('click',function(){
+           $('.formtype').show();
+            
+        });
+        // contenu.html se trouve au même niveau dans l’arborescence.
+        // $('#div').hide();
+        // $('#loc').on('click',function(){
+        //     console.log(12)
+        //     $('#div').show(); });
+              
 });

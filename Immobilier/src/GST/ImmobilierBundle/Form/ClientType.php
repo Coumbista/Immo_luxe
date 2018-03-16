@@ -23,9 +23,9 @@ class ClientType extends AbstractType
         ->add('nomclient',TextType::class,array("label"=>"Nom & Prénom"))
         ->add('telclient',NumberType::class,array("label"=>"Téléphone"))
         ->add('adresseclient',TextType::class,array("label"=>" Adresse"))
-        ->add('emailclient',EmailType::class,array("label"=>"Login"))
+        ->add('emailclient',EmailType::class,array("label"=>"Email"))
         ->add('password',PasswordType::class,array("label"=>"Password"))
-        ->add('save',SubmitType::class,array("label"=>"S'inscrire"));
+        // ->add('save',SubmitType::class,array("label"=>"Réserver"));
         ;
     }/**
      * {@inheritdoc}

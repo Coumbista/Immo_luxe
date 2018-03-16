@@ -9,6 +9,9 @@ gst_immobilier:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+api:
+    resource: '@GSTImmobilierBundle/Controller/APIController.php'
+    type: annotation
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

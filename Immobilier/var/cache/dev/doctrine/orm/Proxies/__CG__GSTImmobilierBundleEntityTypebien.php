@@ -64,10 +64,10 @@ class Typebien extends \GST\ImmobilierBundle\Entity\Typebien implements \Doctrin
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'id', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'libelletype', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'biens'];
+            return ['__isInitialized__', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'id', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'libelletype', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'biens', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'bienpros'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'id', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'libelletype', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'biens'];
+        return ['__isInitialized__', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'id', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'libelletype', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'biens', '' . "\0" . 'GST\\ImmobilierBundle\\Entity\\Typebien' . "\0" . 'bienpros'];
     }
 
     /**
@@ -252,6 +252,39 @@ class Typebien extends \GST\ImmobilierBundle\Entity\Typebien implements \Doctrin
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addBienpro(\GST\ImmobilierBundle\Entity\BienPro $bienpro)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addBienpro', [$bienpro]);
+
+        return parent::addBienpro($bienpro);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeBienpro(\GST\ImmobilierBundle\Entity\BienPro $bienpro)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeBienpro', [$bienpro]);
+
+        return parent::removeBienpro($bienpro);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBienpros()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBienpros', []);
+
+        return parent::getBienpros();
     }
 
 }

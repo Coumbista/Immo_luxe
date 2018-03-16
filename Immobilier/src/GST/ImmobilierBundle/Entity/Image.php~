@@ -35,6 +35,15 @@ class Image
    */
 
   private $bien;
+  /**
+
+   * @ORM\ManyToOne(targetEntity = "GST\ImmobilierBundle\Entity\BienPro",  inversedBy="images")
+   *  * @ORM\JoinColumn(nullable=false)
+
+   */
+
+  private $bienpro;
+  
     /**
      * Get id
      *
@@ -95,4 +104,5 @@ class Image
     public function __toString(){
         return $this->image;
     }
+
 }

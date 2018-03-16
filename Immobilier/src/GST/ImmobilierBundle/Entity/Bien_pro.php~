@@ -1,0 +1,339 @@
+<?php
+
+namespace GST\ImmobilierBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Bien_pro
+ *
+ * @ORM\Table(name="bien_pro")
+ * @ORM\Entity(repositoryClass="GST\ImmobilierBundle\Repository\Bien_proRepository")
+ */
+class Bien_pro
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombien", type="string", length=50)
+     */
+    private $nombien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="montant_pro", type="integer")
+     */
+    private $montantPro;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="etat", type="boolean")
+     */
+    private $etat;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idparentbien", type="integer")
+     */
+    private $idparentbien;
+
+    /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Reserve_pro", mappedBy = "bien_pro")
+   */
+ 
+
+  private $reserve_pros;
+  /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Image", mappedBy = "bien_pro")
+   */
+
+  private $images;
+   /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\Contrat", mappedBy = "bien_pro")
+   */
+
+  private $contrat_pros;
+  /**
+
+   * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Localite")
+
+   * @ORM\JoinColumn(name = "localite_id", referencedColumnName = "id")
+
+   */
+
+  private $localite;
+  /**
+
+ * @ORM\ManyToOne(targetEntity="GST\ImmobilierBundle\Entity\Typebien")
+
+ * @ORM\JoinColumn(name = "typebien_id", referencedColumnName = "id")
+
+ */
+
+private $typebien;
+ 
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nombien
+     *
+     * @param string $nombien
+     *
+     * @return Bien_pro
+     */
+    public function setNombien($nombien)
+    {
+        $this->nombien = $nombien;
+
+        return $this;
+    }
+
+    /**
+     * Get nombien
+     *
+     * @return string
+     */
+    public function getNombien()
+    {
+        return $this->nombien;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Bien_pro
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set montantPro
+     *
+     * @param integer $montantPro
+     *
+     * @return Bien_pro
+     */
+    public function setMontantPro($montantPro)
+    {
+        $this->montantPro = $montantPro;
+
+        return $this;
+    }
+
+    /**
+     * Get montantPro
+     *
+     * @return int
+     */
+    public function getMontantPro()
+    {
+        return $this->montantPro;
+    }
+
+    /**
+     * Set etat
+     *
+     * @param boolean $etat
+     *
+     * @return Bien_pro
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return bool
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * Set idparentbien
+     *
+     * @param integer $idparentbien
+     *
+     * @return Bien_pro
+     */
+    public function setIdparentbien($idparentbien)
+    {
+        $this->idparentbien = $idparentbien;
+
+        return $this;
+    }
+
+    /**
+     * Get idparentbien
+     *
+     * @return int
+     */
+    public function getIdparentbien()
+    {
+        return $this->idparentbien;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reserve_pros = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add reservePro
+     *
+     * @param \GST\ImmobilierBundle\Entity\Reserve_pro $reservePro
+     *
+     * @return Bien_pro
+     */
+    public function addReservePro(\GST\ImmobilierBundle\Entity\Reserve_pro $reservePro)
+    {
+        $this->reserve_pros[] = $reservePro;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservePro
+     *
+     * @param \GST\ImmobilierBundle\Entity\Reserve_pro $reservePro
+     */
+    public function removeReservePro(\GST\ImmobilierBundle\Entity\Reserve_pro $reservePro)
+    {
+        $this->reserve_pros->removeElement($reservePro);
+    }
+
+    /**
+     * Get reservePros
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservePros()
+    {
+        return $this->reserve_pros;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \GST\ImmobilierBundle\Entity\Image $image
+     *
+     * @return Bien_pro
+     */
+    public function addImage(\GST\ImmobilierBundle\Entity\Image $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \GST\ImmobilierBundle\Entity\Image $image
+     */
+    public function removeImage(\GST\ImmobilierBundle\Entity\Image $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Add contratPro
+     *
+     * @param \GST\ImmobilierBundle\Entity\Contrat $contratPro
+     *
+     * @return Bien_pro
+     */
+    public function addContratPro(\GST\ImmobilierBundle\Entity\Contrat $contratPro)
+    {
+        $this->contrat_pros[] = $contratPro;
+
+        return $this;
+    }
+
+    /**
+     * Remove contratPro
+     *
+     * @param \GST\ImmobilierBundle\Entity\Contrat $contratPro
+     */
+    public function removeContratPro(\GST\ImmobilierBundle\Entity\Contrat $contratPro)
+    {
+        $this->contrat_pros->removeElement($contratPro);
+    }
+
+    /**
+     * Get contratPros
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getContratPros()
+    {
+        return $this->contrat_pros;
+    }
+
+   
+
+   
+}

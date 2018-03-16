@@ -33,6 +33,12 @@ class Localite
    */
 
   private $biens;
+  /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\BienPro", mappedBy = "localite")
+   */
+
+  private $bienpros;
   
 
     /**
@@ -112,5 +118,39 @@ class Localite
 
     public function __toString(){
         return $this->libelleloca;
+    }
+
+    /**
+     * Add bienpro
+     *
+     * @param \GST\ImmobilierBundle\Entity\BienPro $bienpro
+     *
+     * @return Localite
+     */
+    public function addBienpro(\GST\ImmobilierBundle\Entity\BienPro $bienpro)
+    {
+        $this->bienpros[] = $bienpro;
+
+        return $this;
+    }
+
+    /**
+     * Remove bienpro
+     *
+     * @param \GST\ImmobilierBundle\Entity\BienPro $bienpro
+     */
+    public function removeBienpro(\GST\ImmobilierBundle\Entity\BienPro $bienpro)
+    {
+        $this->bienpros->removeElement($bienpro);
+    }
+
+    /**
+     * Get bienpros
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBienpros()
+    {
+        return $this->bienpros;
     }
 }

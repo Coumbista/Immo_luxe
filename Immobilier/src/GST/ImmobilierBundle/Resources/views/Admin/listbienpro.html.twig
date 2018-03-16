@@ -1,0 +1,29 @@
+{% extends "::back.html.twig" %}
+{% block recharge %}
+<table class="table" id="myTable" >
+  <thead>
+    <tr>
+      <th>Nom du bien</tho>
+      <th>Description</th>
+        <th>Image</th>
+       {# <th>Localite du Bien</th>
+         <th>Type du bien</th>
+          <th>Prix location</th>
+           <th>Image</th>              
+          <th>Opération</th>
+           <th>Etat</th> 
+       #}
+    </tr>
+  </thead>
+ {% for bienpro in bienpros %}
+ <td>{{ bienpro.nom}}</td>
+  <td>{{bienpro.montantvoulu}}</td>
+ <td>{{bienpro.description}}</td>
+<td> <img src="{{ asset('image/')}}{{ (bienpro.imagepros[0].image )}}" alt="Image" class="img-responsive"></td>
+ {% endfor %}
+ </table>
+ {% endblock %}
+                           
+{# <div class="col-lg-1">
+                                            <button id="addType" type="button" class="btn btn-custom btn-primary waves-effect waves-light"><i class="fa fa-plus"></i></button>
+                                        </div> #}

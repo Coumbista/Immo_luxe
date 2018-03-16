@@ -34,6 +34,13 @@ class Typebien
    */
 
   private $biens;
+  /**
+
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\BienPro", mappedBy = "typebien")
+   */
+
+  private $bienpros;
+  
   
     /**
      * Get id
@@ -112,5 +119,41 @@ class Typebien
 
     public function __toString(){
         return $this->libelletype;
+    }
+
+    
+
+    /**
+     * Add bienpro
+     *
+     * @param \GST\ImmobilierBundle\Entity\BienPro $bienpro
+     *
+     * @return Typebien
+     */
+    public function addBienpro(\GST\ImmobilierBundle\Entity\BienPro $bienpro)
+    {
+        $this->bienpros[] = $bienpro;
+
+        return $this;
+    }
+
+    /**
+     * Remove bienpro
+     *
+     * @param \GST\ImmobilierBundle\Entity\BienPro $bienpro
+     */
+    public function removeBienpro(\GST\ImmobilierBundle\Entity\BienPro $bienpro)
+    {
+        $this->bienpros->removeElement($bienpro);
+    }
+
+    /**
+     * Get bienpros
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBienpros()
+    {
+        return $this->bienpros;
     }
 }

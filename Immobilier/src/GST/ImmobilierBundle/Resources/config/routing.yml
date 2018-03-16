@@ -4,21 +4,43 @@ gst_immobilier_homepage:
 searchBien:
     path:     /bien/search
     defaults: { _controller: GSTImmobilierBundle:Front:searchBien }
+Almadie:
+    path:     /bien/almadie
+    defaults: { _controller: GSTImmobilierBundle:Front:Almadie }
+Mariste:
+    path:     /bien/mariste
+    defaults: { _controller: GSTImmobilierBundle:Front:Mariste }
 reserverBien:
     path:     /front/bien/reserver/{id}
     defaults: { _controller: GSTImmobilierBundle:Front:reserverBien }
     requirements:
         id: \d+
-# logup:
-#     path:     /front/bien/logup
-#     defaults: { _controller: GSTImmobilierBundle:Front:logup }
+resultat:
+    path:     /bien/reserver_bien
+    defaults: { _controller: GSTImmobilierBundle:Front:resultat }
+SavePro:
+    path:     /bien/pro
+    defaults: { _controller: GSTImmobilierBundle:Front:SavePro }
+
+    # requirements:
+    #     id: \d+
+logup:
+    path:     /front/bien/logup
+    defaults: { _controller: GSTImmobilierBundle:Front:logup }
 
 
 list:
     path:     /admin/list
     defaults: { _controller: GSTImmobilierBundle:Admin:list} 
+listbienpro:
+    path:     /admin/listbienpro
+    defaults: { _controller: GSTImmobilierBundle:Admin:listbienpro}
+ListreservePro:
+    path:     /admin/listreservePro
+    defaults: { _controller: GSTImmobilierBundle:Admin:ListreservePro}
+
 recharge:
-    path:     /recharge
+    path:     /admin/recharge
     defaults: { _controller: GSTImmobilierBundle:Admin:recharge}     
 
 Listtype:
@@ -65,6 +87,11 @@ pdf:
 pdf1:
     path:    /admin/pdf1
     defaults: { _controller: GSTImmobilierBundle:Admin:pdf1}
+    requirements:
+        id: \d+
+etatreservation:
+    path:    /admin/listereserve{id}
+    defaults: { _controller: GSTImmobilierBundle:Admin:etatreservation}
     requirements:
         id: \d+
 veil:

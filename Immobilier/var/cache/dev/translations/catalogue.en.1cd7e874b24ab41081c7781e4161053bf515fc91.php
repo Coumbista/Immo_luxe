@@ -246,6 +246,11 @@ the Team.
     'exception.no_entities_configured' => 'The application is not properly configured.',
     'exception.undefined_entity' => 'The application is not properly configured for this kind of items.',
   ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Previous',
+    'label_next' => 'Next',
+  ),
 ));
 
 

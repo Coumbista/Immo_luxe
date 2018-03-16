@@ -64,13 +64,15 @@ public function ListtypeAction(){
 
 }
 public function ListreserveAction(){
-    $repository = $this
+    $em = $this
     ->getDoctrine()
-    ->getManager()
-    ->getRepository('GSTImmobilierBundle:Reservation');
+    ->getManager();
+    // ->getRepository('GSTImmobilierBundle:Reservation')
+    
 //recupérer les données de la base de données0
 
-    $listreserve = $repository->findAll();
+    $listreserve = $em->getRepository('GSTImmobilierBundle:Reservation')->findBy(['etat'=>0]);
+    // $listbien = $em->getRepository('GSTImmobilierBundle:Bien')->findBy(['etat'=>0]);
    return $this->render('GSTImmobilierBundle:Admin:listereserve.html.twig',
    array("reserves"=>$listreserve));
 
@@ -120,38 +122,41 @@ public function saveContratAction(Request $request,$id)
     $em = $this
     ->getDoctrine()
     ->getManager();
+   
     $reservation= $em->getRepository('GSTImmobilierBundle:Reservation')->find($id);
     $textcontrat = $em->getRepository('GSTImmobilierBundle:textContrat')->findAll();
-  
-
+   
             if ($request->isMethod('POST'))
             {
-                 $em = $this
-                 ->getDoctrine()
-                 ->getManager();
+
+                if(isset($_POST['enregistrer'])){
+                 extract($_POST);
+                //  $em = $this
+                //  ->getDoctrine()
+                //  ->getManager();
                  $client= $reservation->getClient();
                 //  echo $reservation->getClient()->getId()."-";
                 // echo $reservation->getBien()->getId();
 
-                 $listbien = $reservation->getBien();
-
+                $listbien = $reservation->getBien();
+                $bien=$em->getRepository('GSTImmobilierBundle:Bien')->find($idbien);
                 $duree=$request->get('duree');
                 $mensualite=$request->get('mensualite');
                 $total=$request->get('total');
+                // $localite=new Localite();
+                // $typebien=new Typebien();
+                $bien= new Bien();
                 $contrat= new Contrat();
                 $contrat->setDateContrat(new \DateTime());
                 $contrat->setCaution($reservation->getBien()->getPrix_loc());
                 $contrat->setDuree("1 an renouvelable");
                 $contrat->setBien($reservation->getBien());
-                $contrat->setClient($reservation->getClient());
+                $contrat->setClient($reservation->getClient());               
                 $em->persist($contrat);
                 $em->flush();
-
-
-
-
           if ($contrat)
           {
+               
                 $paiement = new Paiement();
                 $paiement->setDatePaiement(new \DateTime());
                 $paiement->setMontant($total);
@@ -159,24 +164,29 @@ public function saveContratAction(Request $request,$id)
                 $paiement->setContrat($contrat);
                 $em->persist($paiement);
                 $em->flush();
-
-
+                $update=$this->getDoctrine()
+                ->getManager()
+                ->getRepository('GSTImmobilierBundle:Bien')
+                ->updateEtatBien($idbien);
            }
+          
+        }
+    }
            if ($request->isMethod('GET')) {
             extract($_GET);
-            $reservation=
-             $em->getRepository(Reservation::class)->FindBy(array('id' =>
-             $id,'etat'=>0 ));
-            $reservation[0]->setEtat("1");
-            $em->persist($reservation[0]);
+          
+            $reservation->setEtat("1");
+            $em->persist($reservation);
             $em->flush();
 
         }
-    }
+    
         
     return $this->render('GSTImmobilierBundle:Admin:save.html.twig',
     array("reservation"=> $reservation,"texts"=>$textcontrat ));
-    }
+    return $this->redirectToRoute('save');
+}
+
    public function pdfAction($id){
     $em = $this
     ->getDoctrine()
@@ -187,22 +197,22 @@ public function saveContratAction(Request $request,$id)
     return $this->render('GSTImmobilierBundle:Admin:pdf.html.twig',
     array("reservation"=> $reservation,"texts"=>$textcontrat));
    }
-   public function pdf1Action(Request $request)
-   {
-$snappy= $this ->get("knp_snappy.pdf");
-$html= $this->renderView("default/pdf.html.twig",
-                          array("title"=>"mon pdf"));
+//    public function pdf1Action(Request $request)
+//    {
+// $snappy= $this ->get("knp_snappy.pdf");
+// $html= $this->renderView("default/pdf.html.twig",
+//                           array("title"=>"mon pdf"));
 
-$filename = "custom_pdf_from_twig";
-return new Response(
-   $snappy->getOutputFromHtml($html),
-   200,
-   array(
-       'content-type'=>'application/pdf',
-       'content-Disposition'=>'inline; filename"'.$filename.'.pdf"'
-   ));
+// $filename = "custom_pdf_from_twig";
+// return new Response(
+//    $snappy->getOutputFromHtml($html),
+//    200,
+//    array(
+//        'content-type'=>'application/pdf',
+//        'content-Disposition'=>'inline; filename"'.$filename.'.pdf"'
+//    ));
 
-   }
+//    }
    public function veilAction(){
     return $this->render('GSTImmobilierBundle:Admin:veil.html.twig',
     array());
@@ -227,4 +237,35 @@ public function ajoutBienAction(Request $request){
        // ...
    ));
 }
+public function listbienproAction(){
+    $em = $this
+    ->getDoctrine()
+    ->getManager();
+    $listbienpro= $em->getRepository('GSTImmobilierBundle:BienPro')->findAll();
+    return $this->render('GSTImmobilierBundle:Admin:listbienpro.html.twig',
+    array('bienpros'=>$listbienpro));
+}
+
+
+public function ListreserveProAction(){ 
+    $em =$this->getDoctrine()->getManager();
+    $listresrv = $em->getRepository('GSTImmobilierBundle:Reserve_pro')->findBy(['etat'=>0]);
+    return $this->render('GSTImmobilierBundle:Admin:listreservePro.html.twig',
+    array( 'reserves' => $listresrv));
+
+}  
+
+//         public function etatreservationAction($id ){
+//                 $em=$this->getDoctrine()
+//                 ->getManager();
+//                 $reservation=$em->getRepository('GSTImmobilierBundle:Reservation')->find($id);
+//                 if($reservation->getEtat()==true){
+//                     $reservation->setEtat(0);
+//                 }else{
+//                     $reservation->setEtat(1);
+//                 }
+//                 $em->flush();
+//     return $this->redirectToRoute('listereserve');
+// }
+
 }

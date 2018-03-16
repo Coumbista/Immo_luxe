@@ -38,6 +38,7 @@ return array(
     'Knp\\Bundle\\SnappyBundle\\' => array($vendorDir . '/knplabs/knp-snappy-bundle'),
     'Knp\\Bundle\\PaginatorBundle\\' => array($vendorDir . '/knplabs/knp-paginator-bundle'),
     'JavierEguiluz\\Bundle\\EasyAdminBundle\\' => array($vendorDir . '/easycorp/easyadmin-bundle/legacy'),
+    'JMS\\SerializerBundle\\' => array($vendorDir . '/jms/serializer-bundle'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'FontLib\\' => array($vendorDir . '/phenx/php-font-lib/src/FontLib'),
     'Fig\\Link\\' => array($vendorDir . '/fig/link-util/src'),

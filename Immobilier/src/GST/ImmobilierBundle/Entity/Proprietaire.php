@@ -62,7 +62,12 @@ class Proprietaire
      * @ORM\Column(name="codebanque", type="string", length=50, unique=true)
      */
     private $codebanque;
+ /**
 
+   * @ORM\OneToMany(targetEntity = "GST\ImmobilierBundle\Entity\BienPro", mappedBy = "proprietaire")
+   */
+
+  private $bienpros;
 
     /**
      * Get id
@@ -217,5 +222,45 @@ class Proprietaire
     {
         return $this->codebanque;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->bienpros = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add bienpro
+     *
+     * @param \GST\ImmobilierBundle\Entity\BienPro $bienpro
+     *
+     * @return Proprietaire
+     */
+    public function addBienpro(\GST\ImmobilierBundle\Entity\BienPro $bienpro)
+    {
+        $this->bienpros[] = $bienpro;
+
+        return $this;
+    }
+
+    /**
+     * Remove bienpro
+     *
+     * @param \GST\ImmobilierBundle\Entity\BienPro $bienpro
+     */
+    public function removeBienpro(\GST\ImmobilierBundle\Entity\BienPro $bienpro)
+    {
+        $this->bienpros->removeElement($bienpro);
+    }
+
+    /**
+     * Get bienpros
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBienpros()
+    {
+        return $this->bienpros;
+    }
+}

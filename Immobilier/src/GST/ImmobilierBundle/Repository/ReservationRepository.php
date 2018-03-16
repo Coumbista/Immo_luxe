@@ -1,6 +1,12 @@
 <?php
 
 namespace GST\ImmobilierBundle\Repository;
+use GST\ImmobilierBundle\Entity\Bien;
+use GST\ImmobilierBundle\Entity\Localite;
+use GST\ImmobilierBundle\Entity\Typebien;
+use GST\ImmobilierBundle\Entity\Image;
+use GST\ImmobilierBundle\Entity\Reservation;
+
 
 /**
  * ReservationRepository
@@ -10,4 +16,16 @@ namespace GST\ImmobilierBundle\Repository;
  */
 class ReservationRepository extends \Doctrine\ORM\EntityRepository
 {
+    // public function list(){
+    // //     $dql = "SELECT r, b FROM GST\ImmobilierBundle\Entity\Reservation b WHERE r.etat=0 and b.etat = 0";    
+    // // }
+    // $dql = "SELECT r,b,i FROM
+    //      GST\ImmobilierBundle\Entity\Reservation r
+    //         left Join  r.client c  Join  r.bien b Join  b.typebien t Join
+    // b.localite l  Join b.images i where r.etat='0' and b.etat='0' ";
+    //         $query = $this->getEntityManager()->createQuery($dql);
+    
+    //         return $query->getResult();
+    //     }
+    
 }

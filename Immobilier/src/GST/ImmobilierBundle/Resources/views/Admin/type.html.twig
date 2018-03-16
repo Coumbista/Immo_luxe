@@ -1,7 +1,17 @@
 {% extends "::back.html.twig" %}
 {% block recharge %}
 <div class="container" id="container"style="margin-top:50px;">
-        {{ form (form)}}
+      <div class="formtype">
+      {{ form (form)}}
+      </div>
+      <div class="row">
+            <div class="col_md-12 ">
+            <form >
+            <input  type="submit"name="submit" value="Enregistrer"class="btn btn-primary formtype" style="margin-left:70%;">
+            <input   type="submit"name="submit" value="Annuler"class="btn btn-primary formtypel" style="margin-left:10px;">
+            </form>
+            </div>
+            </div><br>
 <table class="table" id="myTable" >
   <thead>
     <tr>

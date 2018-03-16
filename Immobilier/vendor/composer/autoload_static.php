@@ -69,6 +69,7 @@ class ComposerStaticInitce32f360f39707201d89a619cd8d8bbb
         'J' => 
         array (
             'JavierEguiluz\\Bundle\\EasyAdminBundle\\' => 37,
+            'JMS\\SerializerBundle\\' => 21,
         ),
         'I' => 
         array (
@@ -230,6 +231,10 @@ class ComposerStaticInitce32f360f39707201d89a619cd8d8bbb
         array (
             0 => __DIR__ . '/..' . '/easycorp/easyadmin-bundle/legacy',
         ),
+        'JMS\\SerializerBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jms/serializer-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -321,9 +326,24 @@ class ComposerStaticInitce32f360f39707201d89a619cd8d8bbb
         ),
         'P' => 
         array (
+            'PhpOption\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
+            ),
+            'PhpCollection' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpcollection/phpcollection/src',
+            ),
             'Pagerfanta\\' => 
             array (
                 0 => __DIR__ . '/..' . '/pagerfanta/pagerfanta/src',
+            ),
+        ),
+        'M' => 
+        array (
+            'Metadata\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/metadata/src',
             ),
         ),
         'L' => 
@@ -338,6 +358,17 @@ class ComposerStaticInitce32f360f39707201d89a619cd8d8bbb
             'Knp\\Component' => 
             array (
                 0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
+            ),
+        ),
+        'J' => 
+        array (
+            'JMS\\Serializer' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/serializer/src',
+            ),
+            'JMS\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/parser-lib/src',
             ),
         ),
         'D' => 

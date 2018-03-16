@@ -23,6 +23,8 @@
       <parameter key="UserUserBundle">User\UserBundle\UserUserBundle</parameter>
       <parameter key="EasyAdminBundle">EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
       <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
+      <parameter key="JMSSerializerBundle">JMS\SerializerBundle\JMSSerializerBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -99,6 +101,16 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-snappy-bundle</parameter>
         <parameter key="namespace">Knp\Bundle\SnappyBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
+      </parameter>
+      <parameter key="JMSSerializerBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/Agence_immobilier/Immobilier/vendor/jms/serializer-bundle</parameter>
+        <parameter key="namespace">JMS\SerializerBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -576,6 +588,59 @@
     <parameter key="knp_snappy.image.binary">/usr/local/bin/wkhtmltoimage</parameter>
     <parameter key="knp_snappy.image.options" type="collection"/>
     <parameter key="knp_snappy.image.env" type="collection"/>
+    <parameter key="knp_paginator.class">Knp\Component\Pager\Paginator</parameter>
+    <parameter key="knp_paginator.helper.processor.class">Knp\Bundle\PaginatorBundle\Helper\Processor</parameter>
+    <parameter key="knp_paginator.template.pagination">KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">KnpPaginatorBundle:Pagination:sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
+    <parameter key="jms_serializer.metadata.file_locator.class">Metadata\Driver\FileLocator</parameter>
+    <parameter key="jms_serializer.metadata.annotation_driver.class">JMS\Serializer\Metadata\Driver\AnnotationDriver</parameter>
+    <parameter key="jms_serializer.metadata.chain_driver.class">Metadata\Driver\DriverChain</parameter>
+    <parameter key="jms_serializer.metadata.yaml_driver.class">JMS\Serializer\Metadata\Driver\YamlDriver</parameter>
+    <parameter key="jms_serializer.metadata.xml_driver.class">JMS\Serializer\Metadata\Driver\XmlDriver</parameter>
+    <parameter key="jms_serializer.metadata.php_driver.class">JMS\Serializer\Metadata\Driver\PhpDriver</parameter>
+    <parameter key="jms_serializer.metadata.doctrine_type_driver.class">JMS\Serializer\Metadata\Driver\DoctrineTypeDriver</parameter>
+    <parameter key="jms_serializer.metadata.doctrine_phpcr_type_driver.class">JMS\Serializer\Metadata\Driver\DoctrinePHPCRTypeDriver</parameter>
+    <parameter key="jms_serializer.metadata.lazy_loading_driver.class">Metadata\Driver\LazyLoadingDriver</parameter>
+    <parameter key="jms_serializer.metadata.metadata_factory.class">Metadata\MetadataFactory</parameter>
+    <parameter key="jms_serializer.metadata.cache.file_cache.class">Metadata\Cache\FileCache</parameter>
+    <parameter key="jms_serializer.event_dispatcher.class">JMS\Serializer\EventDispatcher\LazyEventDispatcher</parameter>
+    <parameter key="jms_serializer.camel_case_naming_strategy.class">JMS\Serializer\Naming\CamelCaseNamingStrategy</parameter>
+    <parameter key="jms_serializer.identical_property_naming_strategy.class">JMS\Serializer\Naming\IdenticalPropertyNamingStrategy</parameter>
+    <parameter key="jms_serializer.serialized_name_annotation_strategy.class">JMS\Serializer\Naming\SerializedNameAnnotationStrategy</parameter>
+    <parameter key="jms_serializer.cache_naming_strategy.class">JMS\Serializer\Naming\CacheNamingStrategy</parameter>
+    <parameter key="jms_serializer.doctrine_object_constructor.class">JMS\Serializer\Construction\DoctrineObjectConstructor</parameter>
+    <parameter key="jms_serializer.unserialize_object_constructor.class">JMS\Serializer\Construction\UnserializeObjectConstructor</parameter>
+    <parameter key="jms_serializer.version_exclusion_strategy.class">JMS\Serializer\Exclusion\VersionExclusionStrategy</parameter>
+    <parameter key="jms_serializer.serializer.class">JMS\Serializer\Serializer</parameter>
+    <parameter key="jms_serializer.twig_extension.class">JMS\Serializer\Twig\SerializerExtension</parameter>
+    <parameter key="jms_serializer.twig_runtime_extension.class">JMS\Serializer\Twig\SerializerRuntimeExtension</parameter>
+    <parameter key="jms_serializer.twig_runtime_extension_helper.class">JMS\Serializer\Twig\SerializerRuntimeHelper</parameter>
+    <parameter key="jms_serializer.templating.helper.class">JMS\SerializerBundle\Templating\SerializerHelper</parameter>
+    <parameter key="jms_serializer.json_serialization_visitor.class">JMS\Serializer\JsonSerializationVisitor</parameter>
+    <parameter key="jms_serializer.json_serialization_visitor.options">0</parameter>
+    <parameter key="jms_serializer.json_deserialization_visitor.class">JMS\Serializer\JsonDeserializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_serialization_visitor.class">JMS\Serializer\XmlSerializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_deserialization_visitor.class">JMS\Serializer\XmlDeserializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_deserialization_visitor.doctype_whitelist" type="collection"/>
+    <parameter key="jms_serializer.xml_serialization_visitor.format_output">true</parameter>
+    <parameter key="jms_serializer.yaml_serialization_visitor.class">JMS\Serializer\YamlSerializationVisitor</parameter>
+    <parameter key="jms_serializer.handler_registry.class">JMS\Serializer\Handler\LazyHandlerRegistry</parameter>
+    <parameter key="jms_serializer.datetime_handler.class">JMS\Serializer\Handler\DateHandler</parameter>
+    <parameter key="jms_serializer.array_collection_handler.class">JMS\Serializer\Handler\ArrayCollectionHandler</parameter>
+    <parameter key="jms_serializer.php_collection_handler.class">JMS\Serializer\Handler\PhpCollectionHandler</parameter>
+    <parameter key="jms_serializer.form_error_handler.class">JMS\Serializer\Handler\FormErrorHandler</parameter>
+    <parameter key="jms_serializer.constraint_violation_handler.class">JMS\Serializer\Handler\ConstraintViolationHandler</parameter>
+    <parameter key="jms_serializer.doctrine_proxy_subscriber.class">JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber</parameter>
+    <parameter key="jms_serializer.stopwatch_subscriber.class">JMS\SerializerBundle\Serializer\StopwatchEventSubscriber</parameter>
+    <parameter key="jms_serializer.configured_context_factory.class">JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory</parameter>
+    <parameter key="jms_serializer.expression_evaluator.class">JMS\Serializer\Expression\ExpressionEvaluator</parameter>
+    <parameter key="jms_serializer.expression_language.class">Symfony\Component\ExpressionLanguage\ExpressionLanguage</parameter>
+    <parameter key="jms_serializer.expression_language.function_provider.class">JMS\SerializerBundle\ExpressionLanguage\BasicSerializerFunctionsProvider</parameter>
+    <parameter key="jms_serializer.accessor_strategy.default.class">JMS\Serializer\Accessor\DefaultAccessorStrategy</parameter>
+    <parameter key="jms_serializer.accessor_strategy.expression.class">JMS\Serializer\Accessor\ExpressionAccessorStrategy</parameter>
+    <parameter key="jms_serializer.cache.cache_warmer.class">JMS\SerializerBundle\Cache\CacheWarmer</parameter>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -861,7 +926,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
+      <argument>kniceKJ1kRAY0PhneL0YSd</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -871,7 +936,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
+      <argument>kniceKJ1kRAY0PhneL0YSd</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -1377,6 +1442,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ro.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ro.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ro.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ro.xliff</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lv.xlf</argument>
@@ -1393,6 +1459,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fr.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.fr.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fr.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.fr.xliff</argument>
           </argument>
           <argument key="hu" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf</argument>
@@ -1402,6 +1469,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hu.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.hu.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.hu.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.hu.xliff</argument>
           </argument>
           <argument key="da" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
@@ -1411,6 +1479,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.da.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.da.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.da.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.da.xliff</argument>
           </argument>
           <argument key="lt" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
@@ -1420,6 +1489,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lt.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.lt.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.lt.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.lt.xliff</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf</argument>
@@ -1448,6 +1518,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.id.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.id.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.id.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.id.xliff</argument>
           </argument>
           <argument key="mn" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf</argument>
@@ -1461,6 +1532,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pl.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.pl.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.pl.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.pl.xliff</argument>
           </argument>
           <argument key="sq" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf</argument>
@@ -1479,6 +1551,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.es.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.es.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.es.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.es.xliff</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf</argument>
@@ -1488,6 +1561,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.de.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.de.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.de.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.de.xliff</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf</argument>
@@ -1509,6 +1583,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pt_BR.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt_BR.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt_BR.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.pt_BR.xliff</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf</argument>
@@ -1548,6 +1623,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ar.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ar.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ar.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ar.xliff</argument>
           </argument>
           <argument key="nl" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf</argument>
@@ -1557,6 +1633,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nl.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.nl.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.nl.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.nl.xliff</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
@@ -1564,6 +1641,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.fa.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fa.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fa.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.fa.xliff</argument>
           </argument>
           <argument key="nb" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf</argument>
@@ -1584,6 +1662,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.en.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.en.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.en.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.en.xliff</argument>
           </argument>
           <argument key="cs" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
@@ -1653,6 +1732,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ru.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.ru.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.ru.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ru.xliff</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
@@ -1685,6 +1765,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.it.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.it.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.it.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.it.xliff</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
@@ -1701,6 +1782,7 @@
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sv.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/messages.sv.xlf</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sv.xlf</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.sv.xliff</argument>
           </argument>
           <argument key="zh_CN" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
@@ -1746,10 +1828,14 @@
           <argument key="ky" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ky.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ky.yml</argument>
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ky.xliff</argument>
           </argument>
           <argument key="eo" type="collection">
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eo.yml</argument>
             <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.eo.yml</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.sw.xliff</argument>
           </argument>
         </argument>
       </argument>
@@ -2148,6 +2234,14 @@
         <argument type="collection">
           <argument type="service" id="easyadmin.listener.request_post_initialize"/>
           <argument>initializeRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2590,6 +2684,46 @@
           <argument>onKernelResponse</argument>
         </argument>
         <argument>-128</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
@@ -3335,12 +3469,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a96f9d2c80702.39447173</argument>
+      <argument>5aa931ae27f3e4.03053524</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a96f9d2c80702.39447173</argument>
+      <argument>5aa931ae27f3e4.03053524</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3468,6 +3602,12 @@
         <argument type="service" id="easyadmin.twig.extension"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="jms_serializer.twig_extension.serializer"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.dump"/>
       </call>
       <call method="addExtension">
@@ -3556,6 +3696,10 @@
       <call method="addPath">
         <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/views</argument>
         <argument>EasyAdmin</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -3653,7 +3797,7 @@
       <argument>,</argument>
     </service>
     <service id="twig.runtime_loader" class="Twig\RuntimeLoader\ContainerRuntimeLoader" public="false">
-      <argument type="service" id="service_locator.8925f20c49cbd61fcb37adf8c595459e"/>
+      <argument type="service" id="service_locator.1ecb5190ba61ab773cdad8cb2cc65478"/>
     </service>
     <service id="twig.extension.form" class="Symfony\Bridge\Twig\Extension\FormExtension" public="false">
       <tag name="twig.extension"/>
@@ -3715,6 +3859,10 @@
       <call method="addPath">
         <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/easycorp/easyadmin-bundle/src/Resources/views</argument>
         <argument>EasyAdmin</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/knplabs/knp-paginator-bundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Agence_immobilier/Immobilier/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -5021,6 +5169,625 @@
         <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/snappy</argument>
       </call>
     </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" lazy="true">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination</argument>
+        <argument key="defaultSortableTemplate">KnpPaginatorBundle:Pagination:sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
+    <service id="jms_serializer.event_dispatcher" class="JMS\Serializer\EventDispatcher\LazyEventDispatcher" public="false">
+      <argument type="service" id="service_locator.0f546e561dc1b98ee7f589229bde15d6"/>
+      <call method="setListeners">
+        <argument type="collection">
+          <argument key="serializer.pre_serialize" type="collection">
+            <argument type="collection">
+              <argument type="collection">
+                <argument>jms_serializer.stopwatch_subscriber</argument>
+                <argument>onPreSerialize</argument>
+              </argument>
+              <argument>null</argument>
+              <argument>null</argument>
+            </argument>
+            <argument type="collection">
+              <argument type="collection">
+                <argument>jms_serializer.doctrine_proxy_subscriber</argument>
+                <argument>onPreSerializeTypedProxy</argument>
+              </argument>
+              <argument>null</argument>
+              <argument>null</argument>
+            </argument>
+            <argument type="collection">
+              <argument type="collection">
+                <argument>jms_serializer.doctrine_proxy_subscriber</argument>
+                <argument>onPreSerialize</argument>
+              </argument>
+              <argument>null</argument>
+              <argument>null</argument>
+            </argument>
+          </argument>
+          <argument key="serializer.post_serialize" type="collection">
+            <argument type="collection">
+              <argument type="collection">
+                <argument>jms_serializer.stopwatch_subscriber</argument>
+                <argument>onPostSerialize</argument>
+              </argument>
+              <argument>null</argument>
+              <argument>null</argument>
+            </argument>
+          </argument>
+        </argument>
+      </call>
+    </service>
+    <service id="jms_serializer.doctrine_proxy_subscriber" class="JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber">
+      <tag name="jms_serializer.event_subscriber"/>
+      <argument>true</argument>
+      <argument>false</argument>
+    </service>
+    <service id="jms_serializer.stopwatch_subscriber" class="JMS\SerializerBundle\Serializer\StopwatchEventSubscriber">
+      <tag name="jms_serializer.event_subscriber"/>
+      <argument type="service" id="debug.stopwatch"/>
+    </service>
+    <service id="jms_serializer.handler_registry" class="JMS\Serializer\Handler\LazyHandlerRegistry">
+      <argument type="service" id="service_locator.d6be89097cac897af5423faacb6fffa8"/>
+      <argument type="collection">
+        <argument key="2" type="collection">
+          <argument key="DateTime" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromjson</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromxml</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromyml</argument>
+            </argument>
+          </argument>
+          <argument key="DateTimeImmutable" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeImmutableFromjson</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeImmutableFromxml</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeImmutableFromyml</argument>
+            </argument>
+          </argument>
+          <argument key="DateInterval" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateIntervalFromjson</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateIntervalFromxml</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateIntervalFromyml</argument>
+            </argument>
+          </argument>
+          <argument key="ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\Common\Collections\ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ORM\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\MongoDB\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\PHPCR\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Sequence" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Map" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+          </argument>
+        </argument>
+        <argument key="1" type="collection">
+          <argument key="DateTime" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+          </argument>
+          <argument key="DateTimeImmutable" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTimeImmutable</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTimeImmutable</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTimeImmutable</argument>
+            </argument>
+          </argument>
+          <argument key="DateInterval" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+          </argument>
+          <argument key="ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\Common\Collections\ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ORM\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\MongoDB\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\PHPCR\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Sequence" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Map" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Form\Form" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Form\FormError" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Validator\ConstraintViolationList" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Validator\ConstraintViolation" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationToyml</argument>
+            </argument>
+          </argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="jms_serializer.datetime_handler" class="JMS\Serializer\Handler\DateHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument>Y-m-d\TH:i:sP</argument>
+      <argument>Europe/Berlin</argument>
+      <argument>true</argument>
+    </service>
+    <service id="jms_serializer.array_collection_handler" class="JMS\Serializer\Handler\ArrayCollectionHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument>false</argument>
+    </service>
+    <service id="jms_serializer.php_collection_handler" class="JMS\Serializer\Handler\PhpCollectionHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+    </service>
+    <service id="jms_serializer.form_error_handler" class="JMS\Serializer\Handler\FormErrorHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument type="service" id="translator.data_collector" on-invalid="null"/>
+      <argument>validators</argument>
+    </service>
+    <service id="jms_serializer.constraint_violation_handler" class="JMS\Serializer\Handler\ConstraintViolationHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+    </service>
+    <service id="jms_serializer.metadata.file_locator" class="Metadata\Driver\FileLocator" public="false">
+      <argument type="collection"/>
+    </service>
+    <service id="jms_serializer.metadata.yaml_driver" class="JMS\Serializer\Metadata\Driver\YamlDriver" public="false">
+      <argument type="service" id="jms_serializer.metadata.file_locator"/>
+    </service>
+    <service id="jms_serializer.metadata.xml_driver" class="JMS\Serializer\Metadata\Driver\XmlDriver" public="false">
+      <argument type="service" id="jms_serializer.metadata.file_locator"/>
+    </service>
+    <service id="jms_serializer.metadata.php_driver" class="JMS\Serializer\Metadata\Driver\PhpDriver" public="false">
+      <argument type="service" id="jms_serializer.metadata.file_locator"/>
+    </service>
+    <service id="jms_serializer.metadata.annotation_driver" class="JMS\Serializer\Metadata\Driver\AnnotationDriver" public="false">
+      <argument type="service" id="annotations.cached_reader"/>
+    </service>
+    <service id="jms_serializer.metadata.chain_driver" class="Metadata\Driver\DriverChain" public="false">
+      <argument type="collection">
+        <argument type="service" id="jms_serializer.metadata.yaml_driver"/>
+        <argument type="service" id="jms_serializer.metadata.xml_driver"/>
+        <argument type="service" id="jms_serializer.metadata.php_driver"/>
+        <argument type="service" id="jms_serializer.metadata.annotation_driver"/>
+      </argument>
+    </service>
+    <service id="jms_serializer.metadata.doctrine_type_driver" class="JMS\Serializer\Metadata\Driver\DoctrineTypeDriver" public="false">
+      <argument type="service" id="jms_serializer.metadata.chain_driver"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="jms_serializer.metadata.doctrine_phpcr_type_driver" class="JMS\Serializer\Metadata\Driver\DoctrinePHPCRTypeDriver" public="false">
+      <argument type="service" id="jms_serializer.metadata.chain_driver"/>
+      <argument type="service" id="doctrine_phpcr"/>
+    </service>
+    <service id="jms_serializer.metadata.lazy_loading_driver" class="Metadata\Driver\LazyLoadingDriver" public="false">
+      <argument type="service" id="service_container"/>
+      <argument>jms_serializer.metadata_driver</argument>
+    </service>
+    <service id="jms_serializer.metadata.cache.file_cache" class="Metadata\Cache\FileCache" public="false">
+      <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/jms_serializer</argument>
+    </service>
+    <service id="jms_serializer.metadata_factory" class="Metadata\MetadataFactory" public="false">
+      <argument type="service" id="jms_serializer.metadata.lazy_loading_driver"/>
+      <argument>Metadata\ClassHierarchyMetadata</argument>
+      <argument>true</argument>
+      <call method="setCache">
+        <argument type="service" id="jms_serializer.metadata.cache.file_cache" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="jms_serializer.version_exclusion_strategy" class="JMS\Serializer\Exclusion\VersionExclusionStrategy" public="false" abstract="true"/>
+    <service id="jms_serializer.camel_case_naming_strategy" class="JMS\Serializer\Naming\CamelCaseNamingStrategy" public="false">
+      <argument>_</argument>
+      <argument>true</argument>
+    </service>
+    <service id="jms_serializer.identical_property_naming_strategy" class="JMS\Serializer\Naming\IdenticalPropertyNamingStrategy" public="false"/>
+    <service id="jms_serializer.serialized_name_annotation_strategy" class="JMS\Serializer\Naming\SerializedNameAnnotationStrategy" public="false">
+      <argument type="service" id="jms_serializer.camel_case_naming_strategy"/>
+    </service>
+    <service id="jms_serializer.cache_naming_strategy" class="JMS\Serializer\Naming\CacheNamingStrategy" public="false">
+      <argument type="service" id="jms_serializer.serialized_name_annotation_strategy"/>
+    </service>
+    <service id="jms_serializer.doctrine_object_constructor" class="JMS\Serializer\Construction\DoctrineObjectConstructor" public="false">
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+      <argument type="string">null</argument>
+    </service>
+    <service id="jms_serializer.doctrine_phpcr_object_constructor" class="JMS\Serializer\Construction\DoctrineObjectConstructor" public="false">
+      <argument type="service" id="doctrine_phpcr"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+    </service>
+    <service id="jms_serializer.unserialize_object_constructor" class="JMS\Serializer\Construction\UnserializeObjectConstructor" public="false"/>
+    <service id="jms_serializer.serializer" class="JMS\Serializer\Serializer" public="false">
+      <argument type="service" id="jms_serializer.metadata_factory"/>
+      <argument type="service" id="jms_serializer.handler_registry"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+      <argument type="service">
+        <service class="PhpCollection\Map">
+          <argument type="collection">
+            <argument key="json" type="service" id="jms_serializer.json_serialization_visitor"/>
+            <argument key="xml" type="service" id="jms_serializer.xml_serialization_visitor"/>
+            <argument key="yml" type="service" id="jms_serializer.yaml_serialization_visitor"/>
+          </argument>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="PhpCollection\Map">
+          <argument type="collection">
+            <argument key="json" type="service" id="jms_serializer.json_deserialization_visitor"/>
+            <argument key="xml" type="service" id="jms_serializer.xml_deserialization_visitor"/>
+          </argument>
+        </service>
+      </argument>
+      <argument type="service" id="jms_serializer.event_dispatcher"/>
+      <argument>null</argument>
+      <argument type="service" id="jms_serializer.expression_evaluator"/>
+      <call method="setSerializationContextFactory">
+        <argument type="service" id="jms_serializer.configured_serialization_context_factory"/>
+      </call>
+      <call method="setDeserializationContextFactory">
+        <argument type="service" id="jms_serializer.configured_deserialization_context_factory"/>
+      </call>
+    </service>
+    <service id="jms_serializer.expression_evaluator" class="JMS\Serializer\Expression\ExpressionEvaluator">
+      <argument type="service" id="jms_serializer.expression_language"/>
+      <argument type="collection">
+        <argument key="container" type="service" id="service_container"/>
+      </argument>
+    </service>
+    <service id="jms_serializer.expression_language" class="Symfony\Component\ExpressionLanguage\ExpressionLanguage" public="false">
+      <call method="registerProvider">
+        <argument type="service" id="jms_serializer.expression_language.function_provider"/>
+      </call>
+    </service>
+    <service id="jms_serializer.expression_language.function_provider" class="JMS\SerializerBundle\ExpressionLanguage\BasicSerializerFunctionsProvider" public="false"/>
+    <service id="jms_serializer.twig_extension.serializer" class="JMS\Serializer\Twig\SerializerRuntimeExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="jms_serializer.twig_extension.serializer_runtime_helper" class="JMS\Serializer\Twig\SerializerRuntimeHelper">
+      <tag name="twig.runtime"/>
+      <argument type="service" id="jms_serializer.serializer"/>
+    </service>
+    <service id="jms_serializer.templating.helper.serializer" class="JMS\SerializerBundle\Templating\SerializerHelper">
+      <tag name="templating.helper" alias="jms_serializer"/>
+      <argument type="service" id="jms_serializer.serializer"/>
+    </service>
+    <service id="jms_serializer.accessor_strategy.default" class="JMS\Serializer\Accessor\DefaultAccessorStrategy" public="false"/>
+    <service id="jms_serializer.accessor_strategy.expression" class="JMS\Serializer\Accessor\ExpressionAccessorStrategy" public="false">
+      <argument type="service" id="jms_serializer.expression_evaluator"/>
+      <argument type="service" id="jms_serializer.accessor_strategy.default"/>
+    </service>
+    <service id="jms_serializer.json_serialization_visitor" class="JMS\Serializer\JsonSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="json"/>
+      <argument type="service" id="jms_serializer.cache_naming_strategy"/>
+      <argument type="service" id="jms_serializer.accessor_strategy.expression"/>
+      <call method="setOptions">
+        <argument>0</argument>
+      </call>
+    </service>
+    <service id="jms_serializer.json_deserialization_visitor" class="JMS\Serializer\JsonDeserializationVisitor">
+      <tag name="jms_serializer.deserialization_visitor" format="json"/>
+      <argument type="service" id="jms_serializer.cache_naming_strategy"/>
+    </service>
+    <service id="jms_serializer.xml_serialization_visitor" class="JMS\Serializer\XmlSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="xml"/>
+      <argument type="service" id="jms_serializer.cache_naming_strategy"/>
+      <argument type="service" id="jms_serializer.accessor_strategy.expression"/>
+      <call method="setFormatOutput">
+        <argument>true</argument>
+      </call>
+    </service>
+    <service id="jms_serializer.xml_deserialization_visitor" class="JMS\Serializer\XmlDeserializationVisitor">
+      <tag name="jms_serializer.deserialization_visitor" format="xml"/>
+      <argument type="service" id="jms_serializer.cache_naming_strategy"/>
+      <call method="setDoctypeWhitelist">
+        <argument type="collection"/>
+      </call>
+    </service>
+    <service id="jms_serializer.yaml_serialization_visitor" class="JMS\Serializer\YamlSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="yml"/>
+      <argument type="service" id="jms_serializer.cache_naming_strategy"/>
+      <argument type="service" id="jms_serializer.accessor_strategy.expression"/>
+    </service>
+    <service id="jms_serializer.configured_serialization_context_factory" class="JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory" public="false"/>
+    <service id="jms_serializer.configured_deserialization_context_factory" class="JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory" public="false"/>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -5488,7 +6255,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>pY-bgD7q9j</argument>
       <argument>0</argument>
-      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
+      <argument>kniceKJ1kRAY0PhneL0YSd</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5496,7 +6263,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>7KLuVCHQDL</argument>
       <argument>0</argument>
-      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
+      <argument>kniceKJ1kRAY0PhneL0YSd</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5504,7 +6271,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>5DW1NDZ2ln</argument>
       <argument>0</argument>
-      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
+      <argument>kniceKJ1kRAY0PhneL0YSd</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5512,16 +6279,34 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>bZODC3CwoO</argument>
       <argument>0</argument>
-      <argument>BIgtC5vh4B5LfMQKiwQA3r</argument>
+      <argument>kniceKJ1kRAY0PhneL0YSd</argument>
       <argument>/var/www/html/Agence_immobilier/Immobilier/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
-    <service id="service_locator.8925f20c49cbd61fcb37adf8c595459e" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.1ecb5190ba61ab773cdad8cb2cc65478" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="JMS\Serializer\Twig\SerializerRuntimeHelper" type="service" id="jms_serializer.twig_extension.serializer_runtime_helper"/>
         <argument key="Symfony\Bridge\Twig\Extension\HttpKernelRuntime" type="service" id="twig.runtime.httpkernel"/>
         <argument key="Symfony\Bridge\Twig\Form\TwigRenderer" type="service" id="twig.form.renderer"/>
+      </argument>
+    </service>
+    <service id="service_locator.0f546e561dc1b98ee7f589229bde15d6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="jms_serializer.doctrine_proxy_subscriber" type="service" id="jms_serializer.doctrine_proxy_subscriber"/>
+        <argument key="jms_serializer.stopwatch_subscriber" type="service" id="jms_serializer.stopwatch_subscriber"/>
+      </argument>
+    </service>
+    <service id="service_locator.d6be89097cac897af5423faacb6fffa8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="jms_serializer.array_collection_handler" type="service" id="jms_serializer.array_collection_handler"/>
+        <argument key="jms_serializer.constraint_violation_handler" type="service" id="jms_serializer.constraint_violation_handler"/>
+        <argument key="jms_serializer.datetime_handler" type="service" id="jms_serializer.datetime_handler"/>
+        <argument key="jms_serializer.form_error_handler" type="service" id="jms_serializer.form_error_handler"/>
+        <argument key="jms_serializer.php_collection_handler" type="service" id="jms_serializer.php_collection_handler"/>
       </argument>
     </service>
     <service id="Psr\Container\ContainerInterface" alias="service_container" public="false"/>
@@ -5626,6 +6411,17 @@
     <service id="easy_admin.property_accessor" alias="property_accessor"/>
     <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf"/>
     <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
+    <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
+    <service id="jms_serializer.metadata_driver" alias="jms_serializer.metadata.doctrine_type_driver"/>
+    <service id="jms_serializer.metadata.cache" alias="jms_serializer.metadata.cache.file_cache" public="false"/>
+    <service id="jms_serializer.naming_strategy" alias="jms_serializer.cache_naming_strategy"/>
+    <service id="jms_serializer.object_constructor" alias="jms_serializer.doctrine_object_constructor"/>
+    <service id="jms_serializer.deserialization_context_factory" alias="jms_serializer.configured_deserialization_context_factory"/>
+    <service id="jms_serializer.serialization_context_factory" alias="jms_serializer.configured_serialization_context_factory"/>
+    <service id="jms_serializer" alias="jms_serializer.serializer"/>
+    <service id="JMS\Serializer\SerializerInterface" alias="jms_serializer.serializer" public="false"/>
+    <service id="JMS\Serializer\ArrayTransformerInterface" alias="jms_serializer.serializer" public="false"/>
+    <service id="jms_serializer.accessor_strategy" alias="jms_serializer.accessor_strategy.expression"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand" alias="security.console.user_password_encoder_command"/>

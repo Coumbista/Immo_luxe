@@ -21,7 +21,9 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new User\UserBundle\UserUserBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
-            new Knp\Bundle\SnappyBundle\KnpSnappyBundle()
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

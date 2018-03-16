@@ -26,6 +26,7 @@
         <link href="{{asset('assets/css/pages.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/menu.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/css/owl.carousel.min.css')}}"rel="stylesheet"type="text/css">
 
          <script src="{{asset('assets/js/jquery.min.js')}}"></script>
         <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
@@ -207,6 +208,7 @@
                                     <li><a href="{{path('Listtype')}}"> type de bien</a></li>
                                     <li><a href="{{path('Listlocalite')}}"> Localité</a></li>
                                     <li><a href="{{path('list')}}">Bien</a></li>
+                                    <li><a href="{{path('Listreserve')}}">Reservation</a></li>
                                 </ul>
                             </li>                      
                             
@@ -223,19 +225,20 @@
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->                      
-            <div class="content-page">
+         
+                           <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
                     <div class="container">
                <div class="row">
                          <div class="col-sm-12">                              
                                 <ol class="breadcrumb pull-right">
-                                    <li><a href="#">Ajout_Localité</a></li>
-                                    <li><a href="#">Ajout_Typebien</a></li>
+                                    <li><a href="#" id="loca">Ajout_Localité</a></li>
+                                    <li><a href="#" id="type">Ajout_Typebien</a></li>
                                     <li class="active"><a href="{{path('ajoutBien')}}">Ajout_Bien</a></li>
                                 </ol>
                             </div>
-                        </div>             
+                        </div>              
 {% block recharge %}
                         
 {% endblock %}                    
@@ -309,8 +312,7 @@
                 var table = $('#datatable-fixed-header').DataTable( { fixedHeader: true } );
             } );
             TableManageButtons.init();
-        </script>
-
+            </script>
 
 	</body>
 </html>

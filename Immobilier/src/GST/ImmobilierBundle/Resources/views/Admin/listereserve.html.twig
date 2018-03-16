@@ -1,5 +1,5 @@
-{% extends "::base.html.twig" %}
-{% block body %}
+{% extends "::back.html.twig" %}
+{% block recharge %}
 <div class="jumbotron text-center">
   <h1>Immobilier De Luxe</h1>
   <p>Réservation en cour!</p> 
@@ -21,8 +21,9 @@
         <th>Localite du Bien</th>
          <th>Type du bien</th>
           <th>Prix location</th>
-           <th>Image</th>       
+           <th>Image</th>              
           <th>Opération</th>
+           <th>Etat</th> 
       
     </tr>
   </thead>
@@ -36,6 +37,13 @@
 <td>{{reservation.bien.prix_loc}}</td>
 <td><img  src="{{ asset('image/')}}{{ reservation.bien.images[0].image }}" alt="" style="width:100px;"></td>
  <td><a href="{{path('detailreserver', {'id':reservation.id})}}" class="btn btn-primary col-12"style="margin-left:50px;">Detail</a></td>
+
+{# {% if reservation.etat == 0 %}
+
+<td><a href="{{path('etatreservation',{'id':reservation.id})}}">En cours</a></td>
+{% else %}
+<td><a href="{{path('etatreservation',{'id':reservation.id})}}">Validé</a></td>
+{% endif %} #}
 
 
 {% endfor %}

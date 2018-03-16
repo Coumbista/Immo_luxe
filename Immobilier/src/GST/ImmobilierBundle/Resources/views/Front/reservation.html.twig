@@ -1,54 +1,168 @@
-{% extends "::layout.html.twig" %}
+{% extends "::reservation.html.twig" %}
  
-{% block title %}GSTImmobilierBundle:Front:reserver{% endblock %}
-{# {% block content %}{% endblock %} #}
-{% block body %}
-<style >
-{# form{
-  width:200px;
-  margin-left:300px;
-   
-} #}
-</style>
-
-<div class="jumbotron text-center" style="height:200px;">
-  <h1>Immobilier De Luxe</h1>
-  <p>Nous somme à votre service <em style="color:blue;">24h/24</em>!</p> 
-</div>
+{# {% block title %}GSTImmobilierBundle:Front:reserver{% endblock %} #}
+{% block nav %}
+<nav class="gtco-nav " role="navigation" style="background:black">
+		<div class="gtco-container">
+			
+			<div class="row">
+				<div class="col-sm-4 col-xs-12 ">
+					<div id="gtco-logo"><a href="{{path('searchBien')}}">Immobilier De LUXE <em>.</em></a></div>
+				</div>
+				<div class="col-xs-8 text-right menu-1">
+					<ul>
+						<li><a href="destination.html">Destination</a></li>
+						<li class="has-dropdown">
+							<a href="#">Nos Agences</a>
+							<ul class="dropdown">
+								<li><a href="{{path('Almadie')}}">Almadie</a></li>
+								<li><a href="#">Golf</a></li>
+								<li><a href="{{path('Mariste')}}">Mariste</a></li>
+								<li><a href="#">Dakar</a></li>
+							</ul>
+						</li>
+						<li><a href="{{path('resultat')}}">Nos Biens</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>	
+				</div>
+			</div>
+			
+		</div>
+	</nav>{% endblock %}
+{% block header %}
+  <style>
+  {# .form{
+    width:500px;
+  } #}
+  .rower{
+    display:flex;
+    flex-direction:row;
+    margin-top:150px;
+  }
+  .rowere{
+    display:flex;
+    flex-direction:row;
   
-<div class="container">
-  <div class="row">
-    <div class="col-sm-5">
-    <div class="card">
-      <div class="card-header ">
-       shfbfjkgd
-      </div>
-      <div class="card-body">
-        <h4 class="card-title "> <b style="margin-left:200px;">S'inscrire</b></h4>
-        <p class="card-text">  {{ form (form)}}</p>
-      </div>
-      <div class="card-footer text-muted">
-        Footer
-      </div>
-    </div>
- 
-  
-    </div>
+  }
+  </style>
+     <div class="row rower">
+           <div class="col-lg-4 col-md-4 col-sm-6"  style="width:400px; margin-left:100px;heigth:600px;">
+					    <a href="{{ asset('image/')}}{{ bien.images[0].image }}" class="fh5co-card-item image-popup">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	  <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{ asset('image/')}}{{ bien.images[0].image }}" alt="Image" style="height:400px;width:1000px;">
 
-<div class="col-sm-5" id="contenu">
+      </div>
 
-<form action="" method="post">
-  <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email">
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
-  </div>  
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-        
+          {% for image  in bien.images %}
+						 <div class="item">      
+						  	<img src="{{ asset('image/')}}{{ image.image }}" alt="Image" class="img-responsive"style="height:400px;width:1000px;" >
+            </div>
+                    
+				 {% endfor %}
+                  </div>
+                  </div>
+						{# </figure> #}
+            		</a>
+                </div>
+                 <div class="col-lg-4 col-md-4 col-sm-6" >
+						<div class="fh5co-text">
+							<h2>{{ bien.typebien.libelletype}}</h2>
+              <p><b>Prix de la localtion:</b>{{ bien.prix_loc }}Fcfa,</p>
+               <p><b>Localite:</b> {{bien.localite.libelleloca}}</p>						
+							<pre> {{ bien.description }}..</pre>
+             
+						</div>
+			</div>
+				
+       </div>
       {% endblock %}
 
+        {% block photo %}
+        <div class="row rowere"style="margin-left:300px;">
+        <div class="card"style="background:inherty;">
+          <div class="card-header"style="background:">
+         
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"style="color:grey;margin-left:150px;font-size:16px;"> SALUT! IMOLUXE est avec vous</h4>
+            <p class="card-text form"> {{ form (form)}}</p>
+          </div>
+          <div class="card-footer text-muted">
+         <button type="submit" class="btn btn-primary"style="width:400px;margin-left:100px;">Réserver</button>
+          </div>
+        </div>
+        </div>
+        {# <div class="form">
+        	<h3>Logup</h3>
+         
+        </div> #}
+         {# <div class="col-md-5 col-md-push-1 animate-box">
+					
+					<div class="gtco-contact-info">
+						<h3>Login</h3>
+                <form action="" method="post">
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email"name="emailclient" class="form-control" id="email"required="">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password"name="password" class="form-control" id="pwd" required="">
+        </div>  
+        <button type="submit" class="btn btn-primary">Réserver</button>
+</form> 
+					</div> #}
+			
+          {# {% if users%}
+
+              {%else%}
+              <td colspan="6">Veillez vous inscrire</td> #}
+
+
+          {# {% endif %} #}
+
+         {% endblock %} 
+
+
+{# <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{asset('image/img.jpg')}}" alt="Image">
+
+      </div>
+
+      <div class="item">
+        <img src="{{asset('image/Senegalnew.jpg')}}" alt="Image">
+        
+        
+      </div>
+
+      <div class="item">
+        <img src="{{asset('image/img3.jpg')}}" alt="Image">
+      
+      </div>
+
+      <div class="item">
+        <img src="{{asset('image/img1.jpg')}}" alt="Image">
+      
+      </div>
+   </div> #}
